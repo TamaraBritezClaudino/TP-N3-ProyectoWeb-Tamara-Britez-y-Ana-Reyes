@@ -1,40 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../src/css/style.css">
+    <script src="../src/js/script.js" defer></script>
 </head>
+
 <body>
+    <header>
 
-    <aside>
-        <h1>Categorias</h1>
-        <p>Celulares</p>
+    </header>
 
-        <form action="">
-            <input type="radio" name="" id="">Xiaomi <br>
-            <input type="radio" name="" id="">iPhone <br>
-            <input type="radio" name="" id="">Samsung <br>
-            <input type="radio" name="" id="">Motorola <br>
-            <input type="radio" name="" id="">Infinix 
-        </form>
+    <section id="asideYmain">
+        <aside>
+            <h1>Categorias</h1>
 
-        <h2>Precio</h2>
-        <button>Aplicar</button>
-    </aside>
+            <form action="">
+                <label>Celulares</label>
+                <p><input type="radio" name="marca">Xiaomi </p>
 
-    <main>
-        <div class="tarjeta">
-            <img src="" alt="CelularImg">
+                <p><input type="radio" name="marca">iPhone </p>
 
-            <h3>Sansung Galaxy A36</h3>
-            <p>$679.659,09</p>
+                <p><input type="radio" name="marca">Samsung</p>
 
-            <div>
-                <p>32,51% off Efectivo $389.746.67</p>
-                <p>27% off Transferencia $358.848.84</p>
+                <p><input type="radio" name="marca">Motorola</p>
+
+                <p><input type="radio" name="marca">Infinix</p>
+
+                <div class="precioContenedor">
+                    <label>Precio</label>
+
+                    <div class="rangoSlider">
+                        <span class="slider-track"></span>
+
+                        <input type="range" name="min_val" class="min-val" min="1000" max="12000" value="1000" oninput="sliderMin()">
+                        
+                        <input type="range" name="max_val" class="max-val" min="1000" max="12000" value="12000" oninput="sliderMax()">
+                    </div>
+
+                    <div class="inputContenedor">
+                        <div class="min-box">
+                            <div class="input-wrap">
+                                <span class="input-addon">Desde $</span>
+                                <input type="text" name="min_input" class="input-field min-input">
+                            </div>
+                        </div>
+
+                        <div class="max-box">
+                            <div class="input-wrap">
+                                <span class="input-addon">Hasta $</span>
+                                <input type="text" name="max_input" class="input-field max-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <input type="submit" value="Aplicar">
+            </form>
+        </aside>
+
+        <main>
+            <div class="tarjeta">
+                <img src="" alt="CelularImg">
+
+                <h3>Sansung Galaxy A36</h3>
+                <p>$679.659,09</p>
+
+                <div class="ofertas">
+                    <p>32,51% off Efectivo $389.746.67</p>
+                    <p>27% off Transferencia $358.848.84</p>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </section>
+
 </body>
+
 </html>
