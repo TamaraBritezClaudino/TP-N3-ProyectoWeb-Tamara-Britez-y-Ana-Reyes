@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+
+.header {
+    background-color: #899651;
+    padding: 15px 0;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.logo {
+    font-family: 'Georgia', serif;
+    font-size: 1.8em;
+    color: #fff;
+}
+
+.registro-contenedor {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.registro-formulario {
+    background-color: #B3D096;
+;
+    padding: 30px;
+    border: 2px solid #000000;
+    width: 70%;
+    max-width: 600px;
+}
+
+.registro-formulario h2 {
+    margin-top: 0;
+    color: #2a2828;
+}
+
+.registro-formulario p {
+    font-size: 0.9em;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.fila {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #555;
+    background-color: #e7eedb;
+    width: 100%;
+}
+
+.btn {
+    background-color: #899651;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 30%;
+    align-self: center;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.footer-nuevo-diseno {
+    background-color: #899651; 
+    color: white;
+    font-size: 0.9em;
+    padding: 10px 5%; 
+}
+.terminos-privacidad{
+    color: #d6e2bc;
+}
+
+.contenido-footer-nuevo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; 
+}
+
+.linea-superior, .linea-inferior {
+    height: 1px;
+    background-color: white;
+    opacity: 0.5;
+    margin: 10px 0;
+}
+
+
+.texto-legal-columna {
+    flex-grow: 1; 
+    max-width: 38%;
+    margin-right: 20px;
+    line-height: 1.4;
+}
+
+.copyright-texto {
+    font-weight: bold;
+    margin-bottom: 3px;
+    margin-top: 0;
+}
+
+.terminos-privacidad {
+    font-size: 0.9em;
+    margin-top: 0;
+}
+
+.codigo-barras-columna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    height: 60px; 
+}
+
+.codigo-barras-simulacion {
+    font-family: monospace;
+    font-size: 0.8em; 
+    color: white;
+    letter-spacing: -0.25em; 
+    margin-bottom: 5px;
+    transform: rotate(90deg); 
+    position: absolute; 
+    margin-top: -15px; 
+}
+
+.logo-iconos-columna {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    gap: 10px;
+}
+
+.logo-footer-final {
+    font-family: 'Georgia', serif; 
+    font-size: 1.8em;
+    color: white;
+}
+
+.iconos-sociales-footer i {
+    font-size: 1.5em; 
+    margin-left: 15px;
+    color: black; 
+    background-color: transparent;
+}
+
