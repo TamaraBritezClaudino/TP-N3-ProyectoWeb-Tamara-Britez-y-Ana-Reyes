@@ -33,25 +33,25 @@ maxVal.addEventListener("input", actualizarRango);
 
 precioInputMin.addEventListener("input", () => {
   let val = parseInt(precioInputMin.value);
-  
+
   if (isNaN(val)) return;
-  
+
   val = Math.max(valorMinSlider, Math.min(val, valorMaxSlider));
-  
+
   minVal.value = val;
-  
+
   actualizarRango();
 });
 
 precioInputMax.addEventListener("input", () => {
   let val = parseInt(precioInputMax.value);
-  
+
   if (isNaN(val)) return;
-  
+
   val = Math.max(valorMinSlider, Math.min(val, valorMaxSlider));
-  
+
   maxVal.value = val;
-  
+
   actualizarRango();
 });
 

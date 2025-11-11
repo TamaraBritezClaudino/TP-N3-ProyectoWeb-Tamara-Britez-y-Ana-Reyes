@@ -12,6 +12,8 @@ body {
     height: 100%;
 }
 
+
+
 aside {
     background-color: var(--color3);
     padding: 20px;
@@ -26,6 +28,89 @@ input[type="submit"] {
     border-radius: 15px;
     width: 90%;
 }
+
+.footer-nuevo-diseno {
+    background-color: #899651; 
+    color: white;
+    font-size: 0.9em;
+    padding: 10px 5%; 
+}
+.terminos-privacidad{
+    color: #d6e2bc;
+}
+
+.contenido-footer-nuevo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; 
+}
+
+.linea-superior, .linea-inferior {
+    height: 1px;
+    background-color: white;
+    opacity: 0.5;
+    margin: 10px 0;
+}
+
+
+.texto-legal-columna {
+    flex-grow: 1; 
+    max-width: 38%;
+    margin-right: 20px;
+    line-height: 1.4;
+}
+
+.copyright-texto {
+    font-weight: bold;
+    margin-bottom: 3px;
+    margin-top: 0;
+}
+
+.terminos-privacidad {
+    font-size: 0.9em;
+    margin-top: 0;
+}
+
+.codigo-barras-columna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    height: 60px; 
+}
+
+.codigo-barras-simulacion {
+    font-family: monospace;
+    font-size: 0.8em; 
+    color: white;
+    letter-spacing: -0.25em; 
+    margin-bottom: 5px;
+    transform: rotate(90deg); 
+    position: absolute; 
+    margin-top: -15px; 
+}
+
+.logo-iconos-columna {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    gap: 10px;
+}
+
+.logo-footer-final {
+    font-family: 'Georgia', serif; 
+    font-size: 1.8em;
+    color: white;
+}
+
+.iconos-sociales-footer i {
+    font-size: 1.5em; 
+    margin-left: 15px;
+    color: black; 
+    background-color: transparent;
+}
+
 
 /*Pagina de tienda*/
 #asideYmain {
