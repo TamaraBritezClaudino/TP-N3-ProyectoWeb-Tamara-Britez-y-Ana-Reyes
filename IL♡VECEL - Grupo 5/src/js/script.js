@@ -1,58 +1,52 @@
-const minVal = document.querySelector(".min-val");
-const maxVal = document.querySelector(".max-val");
+const minSlider = document.querySelector(".min-val");
+const maxSlider = document.querySelector(".max-val");
+const minInput = document.querySelector(".min-input");
+const maxInput = document.querySelector(".max-input");
+const barra = document.querySelector(".slider-track");
 
-const precioInputMin = document.querySelector(".min-input");
-const precioInputMax = document.querySelector(".max-input");
+const valorMin = 1000;
+const valorMax = 12000;
 
-const rango = document.querySelector(".slider-track");
+function actualizarRango() {
+  let min = parseInt(minSlider.value);
+  let max = parseInt(maxSlider.value);
 
-const valorMinSlider = 1000;
-const valorMaxSlider = 12000;
+  if (min > max) [min, max] = [max, min];
 
-function actualizarRango() { //Color de la barra
-  const val1 = parseInt(minVal.value);
-  const val2 = parseInt(maxVal.value);
-  const minActual = Math.min(val1, val2);
-  const maxActual = Math.max(val1, val2);
+  const porcMin = ((min - valorMin) / (valorMax -valorMin)) * 100;
+  const porcMax = ((max - valorMin) / (valorMax - valorMin)) * 100;
 
-  const percentMin = ((minActual - valorMinSlider) / (valorMaxSlider - valorMinSlider)) * 100;
-  const percentMax = ((maxActual - valorMinSlider) / (valorMaxSlider - valorMinSlider)) * 100;
+  barra.style.background = `
+    linear-gradient(to right,
+      #000 ${porcMin}%,
+      #B3D096 ${porcMin}%,
+      #B3D096 ${porcMax}%,
+      #000 ${porcMax}%
+    )`;
 
-  rango.style.background = `linear-gradient(to right,
-    #000 ${percentMin}%,
-    #B3D096 ${percentMin}%,
-    #B3D096 ${percentMax}%,
-    #000 ${percentMax}%)`;
-
-  precioInputMin.value = minActual;
-  precioInputMax.value = maxActual;
+  minInput.value = min;
+  maxInput.value = max;
 }
 
-minVal.addEventListener("input", actualizarRango);
-maxVal.addEventListener("input", actualizarRango);
+function actualizarDesdeInput() {
+  let min = parseInt(minInput.value) || valorMin;
+  let max = parseInt(maxInput.value) || valorMax;
 
-precioInputMin.addEventListener("input", () => {
-  let val = parseInt(precioInputMin.value);
+  min = Math.min(Math.max(min, valorMin), valorMax);
+  max = Math.min(Math.max(max, valorMin), valorMax);
 
-  if (isNaN(val)) return;
-
-  val = Math.max(valorMinSlider, Math.min(val, valorMaxSlider));
-
-  minVal.value = val;
+  minSlider.value = min;
+  maxSlider.value = max;
 
   actualizarRango();
-});
+}
 
-precioInputMax.addEventListener("input", () => {
-  let val = parseInt(precioInputMax.value);
+[minSlider, maxSlider].forEach(slider =>
+  slider.addEventListener("input", actualizarRango)
+);
 
-  if (isNaN(val)) return;
-
-  val = Math.max(valorMinSlider, Math.min(val, valorMaxSlider));
-
-  maxVal.value = val;
-
-  actualizarRango();
-});
+[minInput, maxInput].forEach(input =>
+  input.addEventListener("input", actualizarDesdeInput)
+);
 
 document.addEventListener("DOMContentLoaded", actualizarRango);
