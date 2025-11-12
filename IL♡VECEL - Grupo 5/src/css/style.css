@@ -30,7 +30,28 @@ header {
 header a {
     color: white;
     text-decoration: none;
-    font-size: x-large;
+    font-size: 20px;
+    transition: 0.2s ease;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.seccion{
+    width: 100px;
+    text-align: center;
+}
+
+.seccion:hover{
+    padding: 5px;
+    background-color: white;
+    border-radius: 50px;
+    color: var(--color1);
+}
+
+.activo{
+    background-color: white;
+    border-radius: 50px;
+    color: var(--color1);
 }
 
 header i {
@@ -61,7 +82,7 @@ header nav {
 .search-bar i {
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 15px;
     color: black;
 }
 
@@ -79,7 +100,6 @@ aside {
     height: 100%;
     width: 15%;
 }
-
 
 input[type="submit"] {
     background-color: var(--color1);
@@ -115,7 +135,6 @@ input[type="submit"] {
     opacity: 0.5;
     margin: 10px 0;
 }
-
 
 .texto-legal-columna {
     flex-grow: 1;
@@ -172,6 +191,10 @@ input[type="submit"] {
     margin-left: 15px;
     color: black;
     background-color: transparent;
+}
+
+button{
+    cursor: pointer;
 }
 
 /*Pagina de tienda*/
