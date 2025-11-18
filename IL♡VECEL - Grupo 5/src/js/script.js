@@ -1,3 +1,44 @@
+//Pagina Inicio
+const btnIzq = document.querySelector(".btnIzq"),
+  btnDer = document.querySelector(".btnDer"),
+  slider = document.querySelector("#slider"),
+  sliderSection = document.querySelectorAll(".sliderSection")
+
+btnIzq.addEventListener("click", e => moveToLeft())
+btnDer.addEventListener("click", e => moveToRight())
+
+let operation = 0,
+  counter = 0,
+  widhtImg = 100 / sliderSection.length;
+
+function moveToRight() {
+
+  if (counter >= sliderSection.length - 1) {
+    counter = 0;
+    operation = 0;
+  } else {
+    counter++;
+    operation += widhtImg;
+  }
+
+  slider.style.transform = `translateX(-${operation}%)`;
+}
+
+function moveToLeft() {
+
+  if (counter === 0) {
+    counter = sliderSection.length - 1;
+    operation = widhtImg * counter;
+  } else {
+    counter--;
+    operation -= widhtImg;
+  }
+
+  slider.style.transform = `translateX(-${operation}%)`;
+}
+
+
+//Pagina Tienda
 const minSlider = document.querySelector(".min-val");
 const maxSlider = document.querySelector(".max-val");
 const minInput = document.querySelector(".min-input");
@@ -13,7 +54,7 @@ function actualizarRango() {
 
   if (min > max) [min, max] = [max, min];
 
-  const porcMin = ((min - valorMin) / (valorMax -valorMin)) * 100;
+  const porcMin = ((min - valorMin) / (valorMax - valorMin)) * 100;
   const porcMax = ((max - valorMin) / (valorMax - valorMin)) * 100;
 
   barra.style.background = `
