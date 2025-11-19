@@ -5,9 +5,8 @@ const btnIzq = document.querySelector(".btnIzq"),
   sliderSection = document.querySelectorAll(".sliderSection");
 
 if (btnIzq && btnDer && slider && sliderSection.length > 0) {
-
-  btnIzq.addEventListener("click", e => moveToLeft());
-  btnDer.addEventListener("click", e => moveToRight());
+  btnIzq.addEventListener("click", (e) => moveToLeft());
+  btnDer.addEventListener("click", (e) => moveToRight());
 
   let operation = 0,
     counter = 0,
@@ -17,7 +16,9 @@ if (btnIzq && btnDer && slider && sliderSection.length > 0) {
     if (counter >= sliderSection.length - 1) {
       counter = 0;
       operation = 0;
-    } else {
+    } 
+    
+    else {
       counter++;
       operation += widhtImg;
     }
@@ -29,7 +30,9 @@ if (btnIzq && btnDer && slider && sliderSection.length > 0) {
     if (counter === 0) {
       counter = sliderSection.length - 1;
       operation = widhtImg * counter;
-    } else {
+    } 
+    
+    else {
       counter--;
       operation -= widhtImg;
     }
@@ -38,12 +41,10 @@ if (btnIzq && btnDer && slider && sliderSection.length > 0) {
   }
 }
 
-
 //Pagina Tienda
 const rangeInput = document.querySelectorAll(".range-input input"),
   priceInput = document.querySelectorAll(".price-input input"),
- range = document.querySelector(".precioContenedor .slider .progress")
-
+  range = document.querySelector(".precioContenedor .slider .progress");
 
 let priceGap = 1000;
 
@@ -56,8 +57,8 @@ priceInput.forEach((input) => {
       if (e.target.className === "input-min") {
         rangeInput[0].value = minPrice;
         range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
-      }
-
+      } 
+      
       else {
         rangeInput[1].value = maxPrice;
         range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
@@ -74,13 +75,13 @@ rangeInput.forEach((input) => {
     if (maxVal - minVal < priceGap) {
       if (e.target.className === "range-min") {
         rangeInput[0].value = maxVal - priceGap;
-      }
-
+      } 
+      
       else {
         rangeInput[1].value = minVal + priceGap;
       }
-    }
-
+    } 
+    
     else {
       priceInput[0].value = minVal;
       priceInput[1].value = maxVal;
@@ -103,4 +104,3 @@ form.addEventListener("submit", (e) => {
 
   filtrarProductos(precioMin, precioMax);
 });
-
