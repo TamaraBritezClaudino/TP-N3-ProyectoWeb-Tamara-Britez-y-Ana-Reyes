@@ -13,7 +13,8 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1, h2{
+h1,
+h2 {
     font-weight: 500;
     margin: 5px 0;
 }
@@ -36,19 +37,19 @@ header a {
     padding: 5px;
 }
 
-.seccion{
+.seccion {
     width: 100px;
     text-align: center;
 }
 
-.seccion:hover{
+.seccion:hover {
     padding: 5px;
     background-color: white;
     border-radius: 50px;
     color: var(--color1);
 }
 
-.activo{
+.activo {
     background-color: white;
     border-radius: 50px;
     color: var(--color1);
@@ -79,27 +80,27 @@ header nav {
     align-items: center;
 }
 
-input[type="search"]{
+input[type="search"] {
     background-color: white;
 }
 
-#contactosAside{
+#contactosAside {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-.contacto{
+.contacto {
     display: flex;
     gap: 1em;
     align-items: center;
 }
 
-.contacto i{
+.contacto i {
     font-size: 30px;
 }
 
-.contacto p{
+.contacto p {
     margin: 5px 0;
     color: #625555;
 }
@@ -123,6 +124,7 @@ aside {
     background-color: var(--color3);
     padding: 20px;
     width: 15%;
+    min-width: min-content;
 }
 
 input[type="submit"] {
@@ -132,6 +134,11 @@ input[type="submit"] {
     border: none;
     border-radius: 15px;
     width: 90%;
+    transition: 0.3s ease;
+}
+
+input[type="submit"]:hover{
+    background-color: #a8b864f3;
 }
 
 .footer-nuevo-diseno {
@@ -217,21 +224,21 @@ input[type="submit"] {
     background-color: transparent;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
-#body{
+#body {
     display: flex;
     flex-direction: column;
 }
 
-#body main{
+#body main {
     flex: 1;
 }
 
 /*Pagina de Inicio*/
-.contenedorCarrusel{
+.contenedorCarrusel {
     width: 100%;
     height: 780px;
     background-color: #000000;
@@ -239,26 +246,26 @@ button{
     position: relative;
 }
 
-.carruseles{
+.carruseles {
     width: 300%;
     height: 100%;
     display: flex;
     transition: 0.5s ease;
 }
 
-.sliderSection{
+.sliderSection {
     width: calc(100% / 3);
     height: 100%;
 }
 
-.sliderSection img{
+.sliderSection img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 .btnIzq,
-.btnDer{
+.btnDer {
     display: flex;
     position: absolute;
     top: 50%;
@@ -273,49 +280,49 @@ button{
 }
 
 .btnIzq:hover,
-.btnDer:hover{
+.btnDer:hover {
     background-color: var(--color1);
     color: var(--color3);
 }
 
-.btnDer{
+.btnDer {
     right: 10px;
 }
 
-.btnIzq{
+.btnIzq {
     left: 10px;
 }
 
-#contactos{
+#contactos {
     display: flex;
     flex-direction: row;
     width: 100%;
 }
 
-.contactos{
+.contactos {
     width: 33.3%;
     padding: 5px 25px;
 }
 
-.contactos>div{
+.contactos>div {
     width: 100%;
 }
 
-.c1{
+.c1 {
     background-color: var(--color1);
 }
 
-.c2{
+.c2 {
     background-color: var(--color2);
 }
 
-.c3{
+.c3 {
     display: flex;
     flex-direction: column;
     background-color: var(--color3);
 }
 
-#sobreIlovecel{
+#sobreIlovecel {
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -323,25 +330,25 @@ button{
     align-items: center;
 }
 
-#sobreIlovecel h2{
+#sobreIlovecel h2 {
     color: var(--color1);
 }
 
-#sobreIlovecel p{
-    font-size:large;
+#sobreIlovecel p {
+    font-size: large;
 }
 
-#quienesSomos{
+#quienesSomos {
     text-align: center;
 }
 
-#quienesSomos h1{
+#quienesSomos h1 {
     color: var(--color1);
     font-weight: 700;
     font-size: xxx-large;
 }
 
-#historia{
+#historia {
     display: flex;
     justify-content: center;
     width: 70%;
@@ -349,7 +356,7 @@ button{
     padding: 20px;
 }
 
-#historia img{
+#historia img {
     width: 50%;
     border-radius: 20px;
 }
@@ -357,15 +364,36 @@ button{
 /*Pagina de tienda*/
 #asideYmain {
     display: flex;
+    flex-wrap: wrap;
     flex: 1;
     width: 100%;
 }
 
-#mainTienda{
+@media (width <=770px) {
+    #asideYmain {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    .login-formulario,
+    .contact-formulario,
+    .registro-formulario {
+        width: 90%;
+    }
+
+}
+
+
+
+
+#mainTienda {
     padding: 30px;
 }
 
-.tarjeta{
+.tarjeta {
     background-color: var(--color3);
     border-radius: 20px;
     padding: 30px;
@@ -374,16 +402,17 @@ button{
     text-align: center;
 }
 
-.info h3, .info p{
+.info h3,
+.info p {
     margin: 5px;
 }
 
-.tarjeta img{
+.tarjeta img {
     height: 50%;
     width: 80%;
 }
 
-.tarjeta button{
+.tarjeta button {
     background-color: var(--color1);
     color: white;
     padding: 5px;
@@ -393,14 +422,14 @@ button{
     width: 90%;
 }
 
-.fav{
+.fav {
     width: 100%;
     display: flex;
     align-items: end;
     font-size: 20px;
 }
 
-.ofertas{
+.ofertas {
     font-size: 12px;
     display: flex;
     gap: 1em;
@@ -417,120 +446,100 @@ form {
     padding: 20px 0;
 }
 
-.rangoSlider {
+.precioContenedor>div {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.price-input {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+}
+
+.price-input .field {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    background-color: #D9D9D9;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 15px 5px;
+}
+
+.field span {
+    font-size: 14px;
+    flex: 1;
+}
+
+.field input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    text-align: center;
+    border: 1px solid #D9D9D9;
+    background-color: #D9D9D9;
+    -moz-appearance: textfield;
+    font-size: 14px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.slider {
+    height: 5px;
     position: relative;
+    background: #000000;
+    border-radius: 5px;
+}
+
+.slider .progress {
+    height: 100%;
+    left: 25%;
+    right: 25%;
+    position: absolute;
+    border-radius: 5px;
+    background: var(--color1);
+}
+
+.range-input {
+    position: relative;
+}
+
+.range-input input {
+    position: absolute;
     width: 100%;
     height: 5px;
-    margin: 30px 0;
-    background-color: #000000;
-    border-radius: 5px;
-}
-
-.slider-track {
-    height: 100%;
-    position: absolute;
-    background-color: #899651;
-    border-radius: 5px;
-    left: 0;
-    right: 0;
-}
-
-.rangoSlider input {
-    position: absolute;
-    width: 100%;
+    top: -5px;
     background: none;
     pointer-events: none;
-    top: 50%;
-    transform: translateY(-50%);
-    appearance: none;
-}
-
-input[type="range"] {
-    appearance: none;
-    background: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
-    height: 20px;
-    width: 20px;
+    height: 17px;
+    width: 17px;
     border-radius: 50%;
-    border: 3px solid var(--color1);
-    background-color: var(--color1);
+    background: var(--color1);
     pointer-events: auto;
-    appearance: none;
-    cursor: pointer;
-    box-shadow: 0 .125rem .5625rem -0.125rem rgba(0, 0, 0, .25);
+    -webkit-appearance: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 }
 
 input[type="range"]::-moz-range-thumb {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    border: 3px solid var(--color1);
-    background-color: var(--color1);
-    pointer-events: auto;
-    cursor: pointer;
-    -moz-appearance: none;
-    box-shadow: 0 .125rem .5625rem -0.125rem rgba(0, 0, 0, .25);
-}
-
-.inputContenedor {
-    display: flex;
-    gap: 1em;
-    align-items: center;
-    justify-content: center;
-}
-
-.min-box,
-.max-box {
-    width: 50%;
-}
-
-.input-wrap {
-    position: relative;
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-}
-
-.input-addon {
-    display: flex;
-    align-items: center;
-    padding: .625rem 0 .625rem .625rem;
-    font-size: 0.9375rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #685C5C;
-    white-space: nowrap;
-    background-color: #D9D9D9;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
-
-.input-field {
-    margin-left: -1px;
-    padding: .425rem 0;
-    font-size: 0.8125rem;
-    border-radius: .25rem;
-    position: relative;
-    flex: 1 1 auto;
-    width: 1%;
-    min-width: 0;
-    color: #685C5C;
-    background-color: #D9D9D9;
-    background-clip: padding-box;
+    height: 17px;
+    width: 17px;
     border: none;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-
-.input-field:focus {
-    outline: none;
-}
-
-.rangoSlider input[type="range"] {
-    margin: 0;
-    padding: 0;
+    border-radius: 50%;
+    background: var(--color1);
+    pointer-events: auto;
+    -moz-appearance: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 }
 
 /*-------------registro--------------*/
@@ -581,11 +590,11 @@ form {
     gap: 10px;
 }
 
-.registro-formulario>form input[type= "text"], 
-input[type="date"], 
-input[type="email"], 
-input[type="tel"], 
-input[type="password"]{
+.registro-formulario>form input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
     padding: 15px 2px;
     border: 1px solid #000000;
     background-color: #e7eedb;

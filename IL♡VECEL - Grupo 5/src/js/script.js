@@ -2,92 +2,105 @@
 const btnIzq = document.querySelector(".btnIzq"),
   btnDer = document.querySelector(".btnDer"),
   slider = document.querySelector("#slider"),
-  sliderSection = document.querySelectorAll(".sliderSection")
+  sliderSection = document.querySelectorAll(".sliderSection");
 
-btnIzq.addEventListener("click", e => moveToLeft())
-btnDer.addEventListener("click", e => moveToRight())
+if (btnIzq && btnDer && slider && sliderSection.length > 0) {
 
-let operation = 0,
-  counter = 0,
-  widhtImg = 100 / sliderSection.length;
+  btnIzq.addEventListener("click", e => moveToLeft());
+  btnDer.addEventListener("click", e => moveToRight());
 
-function moveToRight() {
+  let operation = 0,
+    counter = 0,
+    widhtImg = 100 / sliderSection.length;
 
-  if (counter >= sliderSection.length - 1) {
-    counter = 0;
-    operation = 0;
-  } else {
-    counter++;
-    operation += widhtImg;
+  function moveToRight() {
+    if (counter >= sliderSection.length - 1) {
+      counter = 0;
+      operation = 0;
+    } else {
+      counter++;
+      operation += widhtImg;
+    }
+
+    slider.style.transform = `translateX(-${operation}%)`;
   }
 
-  slider.style.transform = `translateX(-${operation}%)`;
-}
+  function moveToLeft() {
+    if (counter === 0) {
+      counter = sliderSection.length - 1;
+      operation = widhtImg * counter;
+    } else {
+      counter--;
+      operation -= widhtImg;
+    }
 
-function moveToLeft() {
-
-  if (counter === 0) {
-    counter = sliderSection.length - 1;
-    operation = widhtImg * counter;
-  } else {
-    counter--;
-    operation -= widhtImg;
+    slider.style.transform = `translateX(-${operation}%)`;
   }
-
-  slider.style.transform = `translateX(-${operation}%)`;
 }
 
 
 //Pagina Tienda
-const minSlider = document.querySelector(".min-val");
-const maxSlider = document.querySelector(".max-val");
-const minInput = document.querySelector(".min-input");
-const maxInput = document.querySelector(".max-input");
-const barra = document.querySelector(".slider-track");
+const rangeInput = document.querySelectorAll(".range-input input"),
+  priceInput = document.querySelectorAll(".price-input input"),
+ range = document.querySelector(".precioContenedor .slider .progress")
 
-const valorMin = 1000;
-const valorMax = 12000;
 
-function actualizarRango() {
-  let min = parseInt(minSlider.value);
-  let max = parseInt(maxSlider.value);
+let priceGap = 1000;
 
-  if (min > max) [min, max] = [max, min];
+priceInput.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    let minPrice = parseInt(priceInput[0].value),
+      maxPrice = parseInt(priceInput[1].value);
 
-  const porcMin = ((min - valorMin) / (valorMax - valorMin)) * 100;
-  const porcMax = ((max - valorMin) / (valorMax - valorMin)) * 100;
+    if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+      if (e.target.className === "input-min") {
+        rangeInput[0].value = minPrice;
+        range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+      }
 
-  barra.style.background = `
-    linear-gradient(to right,
-      #000 ${porcMin}%,
-      #B3D096 ${porcMin}%,
-      #B3D096 ${porcMax}%,
-      #000 ${porcMax}%
-    )`;
+      else {
+        rangeInput[1].value = maxPrice;
+        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+      }
+    }
+  });
+});
 
-  minInput.value = min;
-  maxInput.value = max;
-}
+rangeInput.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    let minVal = parseInt(rangeInput[0].value),
+      maxVal = parseInt(rangeInput[1].value);
 
-function actualizarDesdeInput() {
-  let min = parseInt(minInput.value) || valorMin;
-  let max = parseInt(maxInput.value) || valorMax;
+    if (maxVal - minVal < priceGap) {
+      if (e.target.className === "range-min") {
+        rangeInput[0].value = maxVal - priceGap;
+      }
 
-  min = Math.min(Math.max(min, valorMin), valorMax);
-  max = Math.min(Math.max(max, valorMin), valorMax);
+      else {
+        rangeInput[1].value = minVal + priceGap;
+      }
+    }
 
-  minSlider.value = min;
-  maxSlider.value = max;
+    else {
+      priceInput[0].value = minVal;
+      priceInput[1].value = maxVal;
+      range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+      range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+    }
+  });
+});
 
-  actualizarRango();
-}
+const form = document.getElementById("filtroForm");
 
-[minSlider, maxSlider].forEach(slider =>
-  slider.addEventListener("input", actualizarRango)
-);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-[minInput, maxInput].forEach(input =>
-  input.addEventListener("input", actualizarDesdeInput)
-);
+  const precioMin = parseInt(document.getElementById("precioMin").value);
+  const precioMax = parseInt(document.getElementById("precioMax").value);
 
-document.addEventListener("DOMContentLoaded", actualizarRango);
+  console.log("Precio mínimo:", precioMin);
+  console.log("Precio máximo:", precioMax);
+
+  filtrarProductos(precioMin, precioMax);
+});
+

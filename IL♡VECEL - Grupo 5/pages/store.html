@@ -37,49 +37,57 @@
         <aside>
             <h1>Categorias</h1>
 
-            <form action="">
-                <label>Celulares</label>
-                <p><input type="radio" name="marca">Xiaomi </p>
+            <form id="filtroForm">
+                <p>Celulares</p>
+                <label>
+                    <input type="radio" name="marca" value="Xiaomi"> Xiaomi
+                </label>
 
-                <p><input type="radio" name="marca">iPhone </p>
+                <label>
+                    <input type="radio" name="marca" value="iPhone"> iPhone
+                </label>
 
-                <p><input type="radio" name="marca">Samsung</p>
+                <label>
+                    <input type="radio" name="marca" value="Samsung"> Samsung
+                </label>
 
-                <p><input type="radio" name="marca">Motorola</p>
+                <label>
+                    <input type="radio" name="marca" value="Motorola"> Motorola
+                </label>
 
-                <p><input type="radio" name="marca">Infinix</p>
+                <label>
+                    <input type="radio" name="marca" value="Infinix"> Infinix
+                </label>
+
 
                 <div class="precioContenedor">
-                    <label>Precio</label>
+                    <p>Precio</p>
 
-                    <div class="rangoSlider">
-                        <span class="slider-track"></span>
+                    <div>
+                        <div>
+                            <div class="slider">
+                                <div class="progress"></div>
+                            </div>
 
-                        <input type="range" name="min_val" class="min-val" min="1000" max="12000" value="1000"
-                            oninput="sliderMin()">
-
-                        <input type="range" name="max_val" class="max-val" min="1000" max="12000" value="12000"
-                            oninput="sliderMax()">
-                    </div>
-
-                    <div class="inputContenedor">
-                        <div class="min-box">
-                            <div class="input-wrap">
-                                <span class="input-addon">Desde $</span>
-                                <input type="text" name="min_input" class="input-field min-input">
+                            <div class="range-input">
+                                <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+                                <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
                             </div>
                         </div>
 
-                        <div class="max-box">
-                            <div class="input-wrap">
-                                <span class="input-addon">Hasta $</span>
-                                <input type="text" name="max_input" class="input-field max-input">
+                        <div class="price-input">
+                            <div class="field">
+                                <span>Desde$</span>
+                                <input type="number" class="input-min" id="precioMin" value="2500">
+                            </div>
+
+                            <div class="field">
+                                <span>Hasta$</span>
+                                <input type="number" class="input-max" id="precioMax" value="7500">
                             </div>
                         </div>
                     </div>
                 </div>
-
-
 
                 <input type="submit" value="Aplicar">
             </form>
@@ -92,20 +100,20 @@
                 </div>
 
                 <img src="../src/img/celular1.png" alt="CelularImg">
-                
+
 
                 <div class="info">
                     <h3>Sansung Galaxy A36</h3>
                     <p>$679.659,09</p>
                 </div>
-                
+
 
                 <div class="ofertas">
-                    <p>32,51% off <br> 
-                        Efectivo <br> 
+                    <p>32,51% off <br>
+                        Efectivo <br>
                         $389.746.67</p>
                     <p>27% off <br>
-                        Transferencia <br> 
+                        Transferencia <br>
                         $358.848.84</p>
                 </div>
 
