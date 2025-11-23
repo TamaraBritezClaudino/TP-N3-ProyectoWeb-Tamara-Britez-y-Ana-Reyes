@@ -12,19 +12,20 @@
 
 <body>
     <header>
-        <a href="pages/Iniciosesion.html">
+        <a href="pages/login.php">
             <button>Iniciar sesión</button>
         </a>
+
         <nav>
-            <a href="index.html" class="seccion activo">Inicio</a>
-            <a href="pages/store.html" class="seccion">Celulares</a>
-            <a href="pages/Contact.html" class="seccion">Contactos</a>
-            
-            <a href="pages/cart.html">
+            <a href="index.php" class="seccion activo">Inicio</a>
+            <a href="pages/store.php" class="seccion">Celulares</a>
+            <a href="pages/Contact.php" class="seccion">Contactos</a>
+
+            <a href="pages/cart.php">
                 <i class="bi bi-cart"></i>
             </a>
-            
-            <a href="pages/favorite.html">
+
+            <a href="pages/favorite.php">
                 <i class="bi bi-star"></i>
             </a>
         </nav>
@@ -136,32 +137,7 @@
     </main>
 
     <footer class="footer-nuevo-diseno">
-        <div class="linea-superior"></div>
-
-        <div class="contenido-footer-nuevo">
-
-            <div class="texto-legal-columna">
-                <p class="copyright-texto">
-                    Copyright &copy; 2025 Mercado Sitio. Todos los derechos reservados.
-                </p>
-                <p class="terminos-privacidad">
-                    El uso de este sitio web implica la aceptación de los Términos y Condiciones y de
-                    las Políticas de Privacidad de Mercado Sitio.
-                </p>
-            </div>
-
-            <div class="logo-iconos-columna">
-                <div class="logo-footer-final">IL♡VECEL</div>
-                <div class="iconos-sociales-footer">
-                    <i class="bi bi-whatsapp"></i>
-                    <i class="bi bi-instagram"></i>
-                    <i class="bi bi-tiktok"></i>
-                    <i class="bi bi-envelope"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="linea-inferior"></div>
+        <?php require_once 'pages/includes/footer.php'; ?>
     </footer>
 </body>
 
