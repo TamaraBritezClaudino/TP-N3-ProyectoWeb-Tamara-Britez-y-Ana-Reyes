@@ -16,8 +16,8 @@ if (btnIzq && btnDer && slider && sliderSection.length > 0) {
     if (counter >= sliderSection.length - 1) {
       counter = 0;
       operation = 0;
-    } 
-    
+    }
+
     else {
       counter++;
       operation += widhtImg;
@@ -30,8 +30,8 @@ if (btnIzq && btnDer && slider && sliderSection.length > 0) {
     if (counter === 0) {
       counter = sliderSection.length - 1;
       operation = widhtImg * counter;
-    } 
-    
+    }
+
     else {
       counter--;
       operation -= widhtImg;
@@ -57,8 +57,8 @@ priceInput.forEach((input) => {
       if (e.target.className === "input-min") {
         rangeInput[0].value = minPrice;
         range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
-      } 
-      
+      }
+
       else {
         rangeInput[1].value = maxPrice;
         range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
@@ -75,13 +75,13 @@ rangeInput.forEach((input) => {
     if (maxVal - minVal < priceGap) {
       if (e.target.className === "range-min") {
         rangeInput[0].value = maxVal - priceGap;
-      } 
-      
+      }
+
       else {
         rangeInput[1].value = minVal + priceGap;
       }
-    } 
-    
+    }
+
     else {
       priceInput[0].value = minVal;
       priceInput[1].value = maxVal;
@@ -103,4 +103,47 @@ form.addEventListener("submit", (e) => {
   console.log("Precio máximo:", precioMax);
 
   filtrarProductos(precioMin, precioMax);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const contenedor = document.getElementById("mainTienda");
+
+  fetch("https://dummyjson.com/products/category/smartphones")
+    .then((response) => response.json())
+
+    .then((data) => {
+      data.products.forEach((producto) => {
+        contenedor.innerHTML += `
+          <div class="tarjeta">
+            <div class="fav">
+              <i class="bi bi-star"></i>
+            </div>
+            
+            <img src="${producto.thumbnail}" alt="${producto.title}">
+
+            <div class="info">
+              <h3>${producto.title}</h3>
+              <p>$${producto.price}</p>
+            </div>
+
+            <div class="ofertas">
+              <p>32,51% off <br>
+                  Efectivo <br>
+                  $389.746.67</p>
+                    
+              <p>27% off <br>
+                  Transferencia <br>
+                  $358.848.84</p>
+            </div>
+              
+            <button>Agregar al carrito</button>
+          </div>
+        `;
+      });
+    })
+
+    .catch((error) => {
+      console.error("Error al obtener productos:", error);
+      contenedor.innerHTML = '<p class="problemaProductos">Hubo un problema al cargar los productos</p>';
+    });
 });

@@ -76,31 +76,6 @@
         </aside>
 
         <main id="mainTienda">
-            <div class="tarjeta">
-                <div class="fav">
-                    <i class="bi bi-star"></i>
-                </div>
-
-                <img src="../src/img/celular1.png" alt="CelularImg">
-
-
-                <div class="info">
-                    <h3>Sansung Galaxy A36</h3>
-                    <p>$679.659,09</p>
-                </div>
-
-
-                <div class="ofertas">
-                    <p>32,51% off <br>
-                        Efectivo <br>
-                        $389.746.67</p>
-                    <p>27% off <br>
-                        Transferencia <br>
-                        $358.848.84</p>
-                </div>
-
-                <button>Agregar al carrito</button>
-            </div>
         </main>
     </section>
 

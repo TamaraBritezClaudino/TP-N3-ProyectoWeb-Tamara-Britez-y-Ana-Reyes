@@ -378,6 +378,13 @@ button {
 }
 
 /*Pagina de tienda*/
+#mainTienda{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
 #asideYmain {
     display: flex;
     flex-wrap: wrap;
