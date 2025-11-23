@@ -12,9 +12,18 @@
 
 <body>
     <header>
-        <a href="pages/login.php">
-            <button>Iniciar sesión</button>
-        </a>
+
+        <?php
+        session_start();
+        if (isset($_SESSION['usuario'])) { ?>
+            <a href="#">
+                <button><?php echo $_SESSION['usuario']['name']; ?></button>
+            </a>
+        <?php } else { ?>
+            <a href="pages/login.php">
+                <button>Iniciar Sesion</button>
+            </a>
+        <?php } ?>
 
         <nav>
             <a href="index.php" class="seccion activo">Inicio</a>

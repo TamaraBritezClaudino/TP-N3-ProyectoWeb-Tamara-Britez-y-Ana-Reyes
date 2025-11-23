@@ -1,6 +1,10 @@
-<a href="login.php">
-    <button>Iniciar sesión</button>
-</a>
+<?php if (isset($_SESSION['usuario'])) { ?>
+    <a href="#">
+        <button><?php echo $_SESSION['usuario']['name']; ?></button>
+    </a>
+<?php } else { ?>
+    
+<?php } ?>
 
 <nav>
     <a href="../index.php" class="seccion">Inicio</a>
