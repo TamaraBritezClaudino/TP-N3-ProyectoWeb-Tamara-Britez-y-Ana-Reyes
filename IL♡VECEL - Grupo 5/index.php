@@ -17,7 +17,7 @@
         session_start();
         if (isset($_SESSION['usuario'])) { ?>
             <a href="#">
-                <button><?php echo $_SESSION['usuario']['name']; ?></button>
+                <button><?php echo  $_SESSION['usuario']['name']; ?></button>
             </a>
         <?php } else { ?>
             <a href="pages/login.php">
