@@ -1,45 +1,5 @@
 //Pagina Inicio
-const btnIzq = document.querySelector(".btnIzq"),
-  btnDer = document.querySelector(".btnDer"),
-  slider = document.querySelector("#slider"),
-  sliderSection = document.querySelectorAll(".sliderSection");
 
-if (btnIzq && btnDer && slider && sliderSection.length > 0) {
-  btnIzq.addEventListener("click", (e) => moveToLeft());
-  btnDer.addEventListener("click", (e) => moveToRight());
-
-  let operation = 0,
-    counter = 0,
-    widhtImg = 100 / sliderSection.length;
-
-  function moveToRight() {
-    if (counter >= sliderSection.length - 1) {
-      counter = 0;
-      operation = 0;
-    }
-
-    else {
-      counter++;
-      operation += widhtImg;
-    }
-
-    slider.style.transform = `translateX(-${operation}%)`;
-  }
-
-  function moveToLeft() {
-    if (counter === 0) {
-      counter = sliderSection.length - 1;
-      operation = widhtImg * counter;
-    }
-
-    else {
-      counter--;
-      operation -= widhtImg;
-    }
-
-    slider.style.transform = `translateX(-${operation}%)`;
-  }
-}
 
 //Pagina Tienda
 const rangeInput = document.querySelectorAll(".range-input input"),

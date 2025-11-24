@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Inicio</title>
     <link rel="stylesheet" href="src/css/style.css">
     <script src="src/js/script.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -57,9 +57,6 @@
                     <img src="src/img/carruselImg3.jpg" alt="TerceraImgCarrusel">
                 </section>
             </div>
-
-            <i class="bi bi-caret-left-fill btnIzq"></i>
-            <i class="bi bi-caret-right-fill btnDer"></i>
         </div>
 
         <section id="contactos">
@@ -143,7 +140,7 @@
     </main>
 
     <footer class="footer-nuevo-diseno">
-        <?php require_once 'pages/includes/footer.php'; ?>
+        <?php require_once 'pages/footer.php'; ?>
     </footer>
 </body>
 
