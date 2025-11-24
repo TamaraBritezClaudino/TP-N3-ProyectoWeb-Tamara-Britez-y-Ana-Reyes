@@ -5,7 +5,7 @@ if (isset($_SESSION['usuario'])) { ?>
         <button><?php echo  $_SESSION['usuario']['name']; ?></button>
     </a>
 <?php } else { ?>
-    <a class="btnUsuario" href="pages/login.php">
+    <a class="btnUsuario" href="login.php">
         <button>Iniciar Sesion</button>
     </a>
 <?php } ?>

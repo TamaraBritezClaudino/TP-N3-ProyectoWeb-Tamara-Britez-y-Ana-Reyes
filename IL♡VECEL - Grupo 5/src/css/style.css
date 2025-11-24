@@ -479,6 +479,7 @@ button {
 
     .formulario{
         width: 50%;
+        padding: 40px;
     }
 }
 
@@ -557,6 +558,7 @@ button {
 
     .formulario{
         margin: 30px 0;
+        padding: 30px;
     }
 }
 
@@ -606,6 +608,13 @@ button {
     .formulario{
         margin: 30px 0;
         width: 95%;
+        padding: 20px;
+    }
+
+    /*Formulario*/
+    .fila{
+        flex-direction: column;
+        margin-top: 10px;
     }
 }
 
@@ -784,7 +793,6 @@ input[type="range"]::-moz-range-thumb {
 
 .formulario {
     background-color: var(--color2);
-    padding: 40px;
     border: 2px solid #000000;
     height: fit-content;
 }
@@ -831,6 +839,7 @@ input[type="password"] {
     cursor: pointer;
     width: 30%;
     align-self: center;
+    min-width: fit-content;
 }
 
 /*-----------------------contact-------------------*/
@@ -955,7 +964,7 @@ textarea {
     margin-top: 5px;
     width: 30%;
     align-self: center;
-
+    min-width: fit-content;
 }
 
 .link-registro {
