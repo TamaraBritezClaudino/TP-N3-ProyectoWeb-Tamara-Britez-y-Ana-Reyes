@@ -12,32 +12,29 @@
 
 <body>
     <header>
-
         <?php
         session_start();
         if (isset($_SESSION['usuario'])) { ?>
-            <a href="#">
+            <a class="btnUsuario" href="#">
                 <button><?php echo  $_SESSION['usuario']['name']; ?></button>
             </a>
         <?php } else { ?>
-            <a href="pages/login.php">
+            <a class="btnUsuario" href="pages/login.php">
                 <button>Iniciar Sesion</button>
             </a>
         <?php } ?>
 
-        <nav>
-            <a href="index.php" class="seccion activo">Inicio</a>
-            <a href="pages/store.php" class="seccion">Celulares</a>
-            <a href="pages/Contact.php" class="seccion">Contactos</a>
+        <input type="checkbox" id="menu_input" class="nav_input">
 
-            <a href="pages/cart.php">
-                <i class="bi bi-cart"></i>
-            </a>
+        <label for="menu_input" class="nav_toogle"></label>
 
-            <a href="pages/favorite.php">
-                <i class="bi bi-star"></i>
-            </a>
-        </nav>
+        <ul class="nav_list">
+            <li class="nav_item"><a href="index.php" class="seccion">Inicio</a></li>
+            <li class="nav_item"><a href="pages/store.php" class="seccion">Celulares</a></li>
+            <li class="nav_item"><a href="pages/Contact.php" class="seccion">Contactos</a></li>
+            <li class="nav_item"><a href="pages/cart.php"><i class="bi bi-cart"></i></a></li>
+            <li class="nav_item"><a href="pages/favorite.php"><i class="bi bi-star"></i></a></li>
+        </ul>
 
         <form action="/busqueda" method="get" class="search-bar">
             <input type="search" id="barra_busqueda" name="q" placeholder="Busca productos...">

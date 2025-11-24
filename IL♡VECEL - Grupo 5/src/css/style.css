@@ -5,6 +5,11 @@
     --color3: #E6EBDD;
 }
 
+*, ::after, ::before{
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body,
 html {
     margin: 0;
@@ -27,6 +32,8 @@ header {
     align-items: center;
     height: fit-content;
     flex-wrap: wrap;
+    --iconoMenu: url("../assets/menuAbierto.svg");
+    --menuAbierto: translate(-100%);
 }
 
 header a {
@@ -58,6 +65,11 @@ header a {
 
 header i {
     color: #000000;
+    transition: 0.3s ease;
+}
+
+header i:hover{
+    color: white;
 }
 
 header button {
@@ -69,10 +81,52 @@ header button {
     border: 1px solid white;
 }
 
-header nav {
-    display: flex;
-    justify-content: space-between;
-    width: 45%;
+.btnUsuario,
+.nav_toogle {
+    z-index: 10;
+}
+
+#menu_input:checked~.nav_list {
+    display: grid;
+    --iconoMenu: url("../assets/menuCerrado.svg");
+    --menuAbierto: translate(0);
+}
+
+.nav_input {
+    display: none;
+}
+
+.nav_list {
+    transform: var(--menuAbierto);
+    list-style: none;
+    position: fixed;
+    display: grid;
+    inset: 0;
+    background-color: var(--color1);
+    align-content: center;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+    z-index: 9;
+    transition: .5s ease;
+    padding: 0;
+}
+
+#menu_input:checked~.nav_toogle {
+    --iconoMenu: url("../assets/menuCerrado.svg");
+}
+
+.nav_toogle {
+    width: 40px;
+    height: 40px;
+    background-image: var(--iconoMenu);
+    background-size: cover;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#menu_input:checked~.nav_list {
+    display: grid;
 }
 
 .search-bar {
@@ -101,7 +155,8 @@ input[type="search"] {
     font-size: 30px;
 }
 
-.contacto a, .contacto p {
+.contacto a,
+.contacto p {
     margin: 5px 0;
     color: #625555;
     text-decoration: none;
@@ -112,6 +167,7 @@ input[type="search"] {
     right: 10px;
     top: 15px;
     color: black;
+    z-index: 10;
 }
 
 .search-bar input {
@@ -120,6 +176,7 @@ input[type="search"] {
     height: 45px;
     font-size: 15px;
     border: 1px solid white;
+    z-index: 10;
 }
 
 aside {
@@ -139,7 +196,7 @@ input[type="submit"] {
     transition: 0.3s ease;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     background-color: #a8b864f3;
 }
 
@@ -220,7 +277,7 @@ input[type="submit"]:hover{
     color: white;
 }
 
-.iconos-sociales-footer{
+.iconos-sociales-footer {
     display: flex;
     gap: 1em;
     justify-content: center;
@@ -236,7 +293,7 @@ input[type="submit"]:hover{
 }
 
 .iconos-sociales-footer i:hover {
-    opacity: 0.8;  
+    opacity: 0.8;
 }
 
 button {
@@ -255,7 +312,6 @@ button {
 /*Pagina de Inicio*/
 .contenedorCarrusel {
     width: 100%;
-    height: 780px;
     background-color: #000000;
     overflow: hidden;
     position: relative;
@@ -378,11 +434,18 @@ button {
 }
 
 /*Pagina de tienda*/
-#mainTienda{
+#mainTienda {
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+#contenedor {
+    display: flex;
     flex-wrap: wrap;
     gap: 1em;
+    margin: 20px auto;
+    width: 85%;
 }
 
 #asideYmain {
@@ -392,22 +455,55 @@ button {
     width: 100%;
 }
 
-@media (780px < width <=1440px){
+@media (width >=780px) {
+    /*Header*/
+    header {
+        --menuAbierto: translate(0%);
+    }
+
+    .nav_toogle {
+        display: none;
+    }
+
+    .nav_list {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        gap: 4em;
+    }
+
     /*Página de Inicio*/
-    .contenedorCarrusel{
-        height: 500px;
+    .contenedorCarrusel {
+        height: 770px;
+    }
+
+    .formulario{
+        width: 50%;
     }
 }
 
-@media (500px < width <= 780px) {
+@media (width <=1500px){
+    aside{
+        width: 30%;
+    }
+
+    #contenedor{
+        justify-content: center;
+    }
+
+    .formulario{
+        width: 80%;
+    }
+}
+
+@media (500px < width <780px) {
     /*Header*/
-    header{
-        flex-direction: column;
-        gap: 1em;
+    .nav_toogle {
+        order: 3;
     }
 
     /*Página de inicio*/
-    .contenedorCarrusel{
+    .contenedorCarrusel {
         height: 780px;
     }
 
@@ -417,23 +513,24 @@ button {
         grid-template-rows: repeat(2, 1fr);
     }
 
-    .contactos{
+    .contactos {
         width: 100%;
+        padding: 30px 0 20px 20px;
     }
 
-    .c1{
+    .c1 {
         grid-column: 1 / 2;
         grid-row: 1/2;
         width: 100%;
     }
 
-    .c2{
+    .c2 {
         grid-column: 2 / 3;
         grid-row: 1/2;
         width: 100%;
     }
 
-    .c3{
+    .c3 {
         grid-column: 1 / 3;
         grid-row: 2/3;
         width: 100%;
@@ -458,16 +555,42 @@ button {
         width: 90%;
     }
 
+    .formulario{
+        margin: 30px 0;
+    }
 }
 
-@media (width <=500px){
+@media (width <=500px) {
+    /*Header*/
+    .nav_toogle {
+        order: 3;
+    }
+
+    .btnUsuario {
+        order: 2;
+    }
+
+    .contenido-footer-nuevo {
+        flex-direction: column-reverse;
+        gap: 1em;
+    }
+
+    .texto-legal-columna {
+        max-width: 100%;
+        text-align: center;
+    }
+
     /*Página de Inicio*/
+    .contenedorCarrusel{
+        height: 60vh;
+    }
+
     #contactos {
         display: flex;
         flex-direction: column;
     }
 
-    .contactos{
+    .contactos {
         width: 100%;
         height: 200px;
         display: flex;
@@ -475,31 +598,28 @@ button {
         justify-content: center;
     }
 
-    /*Header*/
-    .contenido-footer-nuevo{
-        flex-direction: column-reverse;
-        gap: 1em;
+    /*página tienda*/
+    aside{
+        width: 100%;
     }
 
-    .texto-legal-columna{
-        max-width: 100%;
-        text-align: center;
+    .formulario{
+        margin: 30px 0;
+        width: 95%;
     }
-}
-
-
-
-#mainTienda {
-    padding: 30px;
 }
 
 .tarjeta {
     background-color: var(--color3);
     border-radius: 20px;
     padding: 30px;
-    width: 200px;
-    height: 330px;
+    width: 260px;
+    height: 380px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
 }
 
 .info h3,
@@ -666,7 +786,6 @@ input[type="range"]::-moz-range-thumb {
     background-color: var(--color2);
     padding: 40px;
     border: 2px solid #000000;
-    width: 50%;
     height: fit-content;
 }
 
@@ -791,11 +910,11 @@ textarea {
     justify-content: center;
 }
 
-.google-login{
+.google-login {
     cursor: pointer;
 }
 
-.login-caja-secundaria img{
+.login-caja-secundaria img {
     width: 40px;
     height: 40px;
     margin-left: 10px;

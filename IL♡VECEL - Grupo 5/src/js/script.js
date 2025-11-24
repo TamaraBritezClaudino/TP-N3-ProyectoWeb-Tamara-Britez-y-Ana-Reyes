@@ -106,7 +106,7 @@ form.addEventListener("submit", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const contenedor = document.getElementById("mainTienda");
+  const contenedor = document.getElementById("contenedor");
 
   fetch("https://dummyjson.com/products/category/smartphones")
     .then((response) => response.json())

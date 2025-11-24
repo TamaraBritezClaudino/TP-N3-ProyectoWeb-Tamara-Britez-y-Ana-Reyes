@@ -76,6 +76,7 @@
         </aside>
 
         <main id="mainTienda">
+            <div id="contenedor"></div>
         </main>
     </section>
 
