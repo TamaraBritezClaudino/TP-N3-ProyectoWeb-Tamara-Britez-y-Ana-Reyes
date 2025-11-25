@@ -12,7 +12,7 @@
 
 <body id="body">
     <header>
-        <?php require_once 'header.php';?>
+        <?php require_once 'header.php'; ?>
     </header>
 
     <section id="asideYmain">
@@ -22,7 +22,7 @@
             <form id="filtroForm">
                 <p>Celulares</p>
                 <label>
-                    <input type="radio" name="marca" value="Xiaomi"> Xiaomi
+                    <input type="radio" name="marca" value="Samsung"> Samsung
                 </label>
 
                 <label>
@@ -30,15 +30,15 @@
                 </label>
 
                 <label>
-                    <input type="radio" name="marca" value="Samsung"> Samsung
+                    <input type="radio" name="marca" value="Oppo"> Oppo
                 </label>
 
                 <label>
-                    <input type="radio" name="marca" value="Motorola"> Motorola
+                    <input type="radio" name="marca" value="Realme"> Realme
                 </label>
 
                 <label>
-                    <input type="radio" name="marca" value="Infinix"> Infinix
+                    <input type="radio" name="marca" value="Vivo"> Vivo
                 </label>
 
 
@@ -52,20 +52,20 @@
                             </div>
 
                             <div class="range-input">
-                                <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
-                                <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+                                <input type="range" class="range-min" min="0" max="600" value="100" step="10">
+                                <input type="range" class="range-max" min="0" max="600" value="500" step="10">
                             </div>
                         </div>
 
                         <div class="price-input">
                             <div class="field">
                                 <span>Desde$</span>
-                                <input type="number" class="input-min" id="precioMin" value="2500">
+                                <input type="number" class="input-min" id="precioMin" value="100">
                             </div>
 
                             <div class="field">
                                 <span>Hasta$</span>
-                                <input type="number" class="input-max" id="precioMax" value="7500">
+                                <input type="number" class="input-max" id="precioMax" value="500">
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
     </section>
 
     <footer class="footer-nuevo-diseno">
-        <?php require_once 'footer.php';?>
+        <?php require_once 'footer.php'; ?>
     </footer>
 </body>
 

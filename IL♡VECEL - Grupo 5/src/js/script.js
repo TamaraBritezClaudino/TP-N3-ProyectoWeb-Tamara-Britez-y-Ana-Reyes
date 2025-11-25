@@ -6,7 +6,7 @@ const rangeInput = document.querySelectorAll(".range-input input"),
   priceInput = document.querySelectorAll(".price-input input"),
   range = document.querySelector(".precioContenedor .slider .progress");
 
-let priceGap = 1000;
+let priceGap = 50;
 
 priceInput.forEach((input) => {
   input.addEventListener("input", (e) => {
@@ -65,6 +65,7 @@ form.addEventListener("submit", (e) => {
   filtrarProductos(precioMin, precioMax);
 });
 
+//API
 document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("contenedor");
 
