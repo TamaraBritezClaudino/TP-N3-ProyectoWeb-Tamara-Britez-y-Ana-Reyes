@@ -18,15 +18,17 @@
     <main class="main-ch">
         <section class="ch-contenedor">
             <div class="ch-caja">
-                <h2>Historial de compras</h2>
-                <hr>
+                <div>
+                    <h2>Historial de compras</h2>
+                    <hr>
+                </div>
 
                 <div class="carrito-total">
                     <h3>SUBTOTAL: <span id="subtotal">0</span> $</h3>
                     <button class="btn-comprar">REALIZAR PEDIDO</button>
                 </div>
             </div>
-            
+
         </section>
     </main>
 

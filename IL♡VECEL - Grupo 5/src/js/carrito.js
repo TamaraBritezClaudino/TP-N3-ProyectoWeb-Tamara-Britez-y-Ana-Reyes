@@ -33,11 +33,14 @@ function mostrarCarrito() {
         item.classList.add("item-compra");
 
         item.innerHTML = `
-            <img src="${p.img}" class="item-img">
-            <div class="item-info">
-                <h3>${p.nombre}</h3>
-                <p>Precio: $${p.precio}</p>
-                <p>Cantidad: ${p.cantidad}</p>
+            <div>
+                <img src="${p.img}" class="item-img">
+                
+                <div class="item-info">
+                    <h3>${p.nombre}</h3>
+                    <p>Precio: $${p.precio}</p>
+                    <p>Cantidad: ${p.cantidad}</p>
+                </div>
             </div>
         `;
 
