@@ -21,7 +21,7 @@
         </button>
     </a>
 <?php } else { ?>
-    <a class="btnUsuario" href="login.php">
+    <a class="btnUsuario" href="pages/login.php">
         <button>
             <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesion
         </button>
