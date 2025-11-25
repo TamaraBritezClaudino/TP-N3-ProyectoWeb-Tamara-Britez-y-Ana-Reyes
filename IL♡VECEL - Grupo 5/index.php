@@ -12,17 +12,21 @@
 
 <body>
     <header>
-        <?php
-        session_start();
-        if (isset($_SESSION['usuario'])) { ?>
-            <a class="btnUsuario" href="#">
-                <button><?php echo  $_SESSION['usuario']['name']; ?></button>
-            </a>
-        <?php } else { ?>
-            <a class="btnUsuario" href="pages/login.php">
-                <button>Iniciar Sesion</button>
-            </a>
-        <?php } ?>
+<?php session_start();
+?>
+<?php if (isset($_SESSION['usuario'])) { ?>
+    <a class="btnUsuario" href="#">
+        <button><i class="bi bi-person-circle"></i>
+            <?php echo $_SESSION['usuario']['name']; ?>
+        </button>
+    </a>
+<?php } else { ?>
+    <a class="btnUsuario" href="login.php">
+        <button>
+            <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesion
+        </button>
+    </a>
+<?php } ?>
 
         <input type="checkbox" id="menu_input" class="nav_input">
 
