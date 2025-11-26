@@ -36,13 +36,9 @@ function mostrarFavorito() {
     btnCarrito.innerHTML = '<i class="bi bi-cart-plus"></i>';
     btnCarrito.addEventListener("click", () => agregarFavoritoAlCarrito(p));
 
-    const botones = document.createElement("div");
-    botones.classList.add("grupo-botones");
-    botones.appendChild(btnEliminar);
-    botones.appendChild(btnCarrito);
-
-    item.appendChild(botones);
-    lista.appendChild(item);
+    item.appendChild(btnEliminar);
+    item.appendChild(btnCarrito);
+    lista.appendChild(item); 
   });
 }
 
@@ -56,30 +52,27 @@ document.addEventListener("DOMContentLoaded", () => {
   mostrarFavorito();
 });
 
-function agregarFavorito(id) {
-    fetch(`https://dummyjson.com/products/${id}`)
-        .then(res => res.json())
-        .then(producto => {
-            let favoritos = JSON.parse(localStorage.getItem("favorito")) || [];
+function agregarFavoritoAlCarrito(productoFav) {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-            let existe = favoritos.find(p => p.id === producto.id);
+  let existe = carrito.find(p => p.id === productoFav.id);
 
-            if (!existe) {
-                favoritos.push({
-                    id: producto.id,
-                    nombre: producto.title,
-                    precio: producto.price,
-                    img: producto.thumbnail
-                });
+  if (existe) {
+    existe.cantidad++;
+  } else {
+    carrito.push({
+      id: productoFav.id,
+      nombre: productoFav.nombre,
+      precio: productoFav.precio,
+      img: productoFav.img,
+      cantidad: 1
+    });
+  }
 
-                localStorage.setItem("favorito", JSON.stringify(favoritos));
-                alert("Agregado a favoritos!");
-            } else {
-                alert("Este producto ya está en favoritos.");
-            }
-        });
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  alert("Agregado al carrito desde favoritos!");
+  mostrarCarrito();
 }
-document.addEventListener("DOMContentLoaded", () => {
-  mostrarFavorito();
-});
+
+
 
