@@ -89,31 +89,27 @@ const form = document.getElementById("filtroForm");
 const contenedor = document.getElementById("contenedor");
 
 form.addEventListener("submit", function (e) {
-  e.preventDefault();
+  e.preventDefault(); // evita recargar la página
 
-  const marcaSeleccionada = document.querySelector(
-    'input[name="marca"]:checked'
-  );
-  const marca = marcaSeleccionada
-    ? marcaSeleccionada.value.toLowerCase()
-    : null;
+  const marcaSeleccionada = document.querySelector('input[name="marca"]:checked');
+  const marca = marcaSeleccionada ? marcaSeleccionada.value.toLowerCase() : null;
 
   const precioMin = parseInt(document.getElementById("precioMin").value);
   const precioMax = parseInt(document.getElementById("precioMax").value);
 
   fetch("https://dummyjson.com/products/category/smartphones")
-    .then((res) => res.json())
-    .then((data) => {
+    .then(res => res.json())
+    .then(data => {
       let filtrados = data.products;
 
       if (marca) {
-        filtrados = filtrados.filter((p) =>
+        filtrados = filtrados.filter(p =>
           p.brand.toLowerCase().includes(marca)
         );
       }
 
-      filtrados = filtrados.filter(
-        (p) => p.price >= precioMin && p.price <= precioMax
+      filtrados = filtrados.filter(p =>
+        p.price >= precioMin && p.price <= precioMax
       );
 
       mostrarProductos(filtrados);
@@ -121,17 +117,20 @@ form.addEventListener("submit", function (e) {
 });
 
 function mostrarProductos(productos) {
-  contenedor.innerHTML = "";
+  contenedor.innerHTML = ""; // limpiar lo anterior
 
   if (productos.length === 0) {
-    contenedor.innerHTML = "<p>No se encontraron productos</p>";
+    contenedor.innerHTML = "<p>No se encontraron productos con esos filtros.</p>";
     return;
   }
 
-  productos.forEach((producto) => {
+  productos.forEach(producto => {
     contenedor.innerHTML += `
       <div class="tarjeta">
-        <button onclick="agregarFavorito(${producto.id})"class="fav"><i class="bi bi-star"></i></button>
+        <div class="fav">
+          <i class="bi bi-star"></i>
+        </div>
+
         <img src="${producto.thumbnail}" alt="${producto.title}">
 
         <div class="info">
@@ -141,10 +140,12 @@ function mostrarProductos(productos) {
 
         <div class="ofertas">
           <p>32,51% off <br>
-              Efectivo</p>
+              Efectivo <br>
+              $389.746.67</p>
                 
           <p>27% off <br>
-              Transferencia</p>
+              Transferencia <br>
+              $358.848.84</p>
         </div>
 
         <button class="agregar" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
@@ -152,6 +153,13 @@ function mostrarProductos(productos) {
     `;
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("https://dummyjson.com/products/category/smartphones")
+    .then(res => res.json())
+    .then(data => mostrarProductos(data.products));
+});
+
 
 //Agregar al carrito
 function agregarAlCarrito(id) {

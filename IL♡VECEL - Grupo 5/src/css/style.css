@@ -446,6 +446,7 @@ button {
     padding: 25px;
     border-radius: 10px;
     text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.589);
 }
 
 .icono {
@@ -1083,7 +1084,7 @@ textarea {
     color: #555;
 }
 
-.btn-eliminar {
+.btn-eliminar, .btn-carrito-fav {
     background: #899651;
     color: white;
     border: none;
@@ -1096,6 +1097,10 @@ textarea {
 
 .btn-eliminar:hover {
     background: #e63a3a;
+}
+
+.btn-carrito-fav:hover{
+    background-color: #98a75a;
 }
 
 .carrito-total {

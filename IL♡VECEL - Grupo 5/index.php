@@ -126,7 +126,7 @@
             </div>
         </section>
 
-        <section class="contenedor">
+        <div class="contenedor">
             <h1 class="titulo">INFORMACIÓN SOBRE ILUVECEL</h1>
             <p class="subtitulo">
                 ILUVECEL es una tienda online donde podés comparar, elegir y comprar celulares
@@ -194,11 +194,45 @@
 
             <h2 class="titulo">Nuestra Historia</h2>
             <p class="subtitulo">En IL♡VECEL comenzamos en 1976 como una pequeña tienda de celulares con la misión de acercar la tecnología a todos. Con el tiempo, pasando por generaciones en generaciones, hemos crecido ofreciendo los mejores dispositivos y un servicio personalizado, siempre enfocados en la satisfacción de nuestros clientes. Hoy somos un referente confiable en el mundo móvil, acompañándote en cada conexión. <br>
-        Te invitamos a explorar nuestra página, descubrir nuestros productos y conocer todo lo que tenemos para
-            ofrecerte. ¡Sigue navegando y encuentra el celular perfecto para ti!</p>
-        </section>
+                Te invitamos a explorar nuestra página, descubrir nuestros productos y conocer todo lo que tenemos para
+                ofrecerte. ¡Sigue navegando y encuentra el celular perfecto para ti!</p>
 
-        
+            <section class="contenedor testimonios">
+                <h1 class="titulo">Testimonios de Nuestros Clientes</h1>
+                <p class="subtitulo">Conoce las experiencias reales de quienes confiaron en ILUVECEL</p>
+
+                <div class="grid">
+
+                    <div class="item">
+                        <i class="bi bi-chat-quote icono"></i>
+                        <h3>María González</h3>
+                        <p>
+                            “Excelente atención y los precios son muy competitivos. Me ayudaron a elegir el mejor celular para mí.”
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <i class="bi bi-chat-quote icono"></i>
+                        <h3>Javier Ruiz</h3>
+                        <p>
+                            “El envío fue rapidísimo y el teléfono llegó en perfectas condiciones. Muy recomendados.”
+                        </p>
+                    </div>
+
+                    <div class="item">
+                        <i class="bi bi-chat-quote icono"></i>
+                        <h3>Luciana Pérez</h3>
+                        <p>
+                            “La web es súper sencilla de usar. Pude comparar varios modelos antes de decidirme.”
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+
         </section>
     </main>
 
