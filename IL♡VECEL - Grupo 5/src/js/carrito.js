@@ -90,7 +90,6 @@ function agregarAlCarrito(id) {
                     nombre: producto.title,
                     precio: producto.price,
                     img: producto.thumbnail,
-                    cantidad: 1
                 });
             }
 
