@@ -44,7 +44,17 @@
     </li>
 </ul>
 
-<form action="/busqueda" method="get" class="search-bar">
-    <input type="search" id="barra_busqueda" name="q" placeholder="Busca productos...">
+<form method="post" class="search-bar">
+    <button type="submit" name="submit" id="buscar">Buscar</button>
+    <input type="search" id="barra_busqueda" name="busqueda" placeholder="Busca productos...">
     <i class="bi bi-search"></i>
 </form>
+
+<?php
+   require_once __DIR__ . "/../includes/config.php";
+
+   if (isset($_POST['submit'])) {
+    $search = $_POST['busqueda'];
+    header("Location: busqueda.php?busqueda=" . urlencode($search));
+}
+?>

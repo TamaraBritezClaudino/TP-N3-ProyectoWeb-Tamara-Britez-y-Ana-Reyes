@@ -162,7 +162,7 @@ input[type="search"] {
     text-decoration: none;
 }
 
-.search-bar i {
+.search-bar i { 
     position: absolute;
     right: 10px;
     top: 15px;
