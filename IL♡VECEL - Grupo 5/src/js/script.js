@@ -140,12 +140,10 @@ function mostrarProductos(productos) {
 
         <div class="ofertas">
           <p>32,51% off <br>
-              Efectivo <br>
-              $389.746.67</p>
+              Efectivo</p>
                 
           <p>27% off <br>
-              Transferencia <br>
-              $358.848.84</p>
+              Transferencia </p>
         </div>
 
         <button class="agregar" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
