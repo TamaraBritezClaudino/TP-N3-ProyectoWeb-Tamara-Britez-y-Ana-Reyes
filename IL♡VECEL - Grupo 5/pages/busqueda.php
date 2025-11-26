@@ -78,7 +78,7 @@
             $sql = "SELECT*FROM celulares WHERE titulo LIKE '%" . $_GET['busqueda'] . "%'";
             $res = mysqli_query($conn, $sql);
             if (!$res) {
-                die(); //hacen una redireccion o una alerta que diga "no se encontro la busqueda"
+                die(); 
             }
             $celulares = mysqli_fetch_all($res, MYSQLI_ASSOC);
         }
@@ -109,7 +109,7 @@
                                 $358.848.84</p>
                         </div>
                         
-<button onclick="agregarAlCarrito(<?php echo $celular['api_id']; ?>)">Agregar al carrito</button>
+<button class="agregar" onclick="agregarAlCarrito(<?php echo $celular['api_id']; ?>)">Agregar al carrito</button>
 
                     </div>
                 <?php } ?>
