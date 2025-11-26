@@ -52,20 +52,20 @@
                             </div>
 
                             <div class="range-input">
-                                <input type="range" class="range-min" min="0" max="600" value="100" step="10">
-                                <input type="range" class="range-max" min="0" max="600" value="500" step="10">
+                                <input type="range" class="range-min" min="0" max="1000" value="300" step="50">
+                                <input type="range" class="range-max" min="0" max="1000" value="800" step="50">
                             </div>
                         </div>
 
                         <div class="price-input">
                             <div class="field">
                                 <span>Desde$</span>
-                                <input type="number" class="input-min" id="precioMin" value="100">
+                                <input type="number" class="input-min" id="precioMin" value="300">
                             </div>
 
                             <div class="field">
                                 <span>Hasta$</span>
-                                <input type="number" class="input-max" id="precioMax" value="500">
+                                <input type="number" class="input-max" id="precioMax" value="800">
                             </div>
                         </div>
                     </div>

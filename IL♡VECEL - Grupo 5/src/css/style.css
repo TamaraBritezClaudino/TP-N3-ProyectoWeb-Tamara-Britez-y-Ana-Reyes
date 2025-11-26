@@ -45,6 +45,12 @@ header a {
     padding: 5px;
 }
 
+header .iconos{
+    display: flex;
+    height: fit-content;
+    gap: 2em;
+}
+
 .seccion {
     width: 100px;
     text-align: center;
@@ -129,14 +135,32 @@ header button {
     display: grid;
 }
 
-.search-bar {
-    position: relative;
-    display: flex;
-    align-items: center;
+input[type="search"] {
+    border: white solid 1px;
 }
 
-input[type="search"] {
+.search-bar {
+    border-radius: 25px;
     background-color: white;
+    font-size: 15px;
+    border: 1px solid white;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    overflow: hidden;
+}
+
+.search-bar button{
+    background: none;
+}
+
+.search-bar i{
+    color: var(--color1);
+}
+
+.search-bar i:hover{
+    color: var(--color2);
 }
 
 #contactosAside {
@@ -160,23 +184,6 @@ input[type="search"] {
     margin: 5px 0;
     color: #625555;
     text-decoration: none;
-}
-
-.search-bar i { 
-    position: absolute;
-    right: 10px;
-    top: 15px;
-    color: black;
-    z-index: 10;
-}
-
-.search-bar input {
-    padding: 10px;
-    border-radius: 20px;
-    height: 45px;
-    font-size: 15px;
-    border: 1px solid white;
-    z-index: 10;
 }
 
 aside {
@@ -815,6 +822,7 @@ textarea {
         position: static;
         display: flex;
         flex-direction: row;
+        align-items: center;
         gap: 4em;
     }
 

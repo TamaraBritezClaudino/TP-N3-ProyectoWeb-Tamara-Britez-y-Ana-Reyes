@@ -1,6 +1,3 @@
-//Pagina Inicio
-
-
 //Pagina Tienda
 const rangeInput = document.querySelectorAll(".range-input input"),
   priceInput = document.querySelectorAll(".price-input input"),
@@ -51,20 +48,6 @@ rangeInput.forEach((input) => {
   });
 });
 
-const form = document.getElementById("filtroForm");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const precioMin = parseInt(document.getElementById("precioMin").value);
-  const precioMax = parseInt(document.getElementById("precioMax").value);
-
-  console.log("Precio mínimo:", precioMin);
-  console.log("Precio máximo:", precioMax);
-
-  filtrarProductos(precioMin, precioMax);
-});
-
 //API
 document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("contenedor");
@@ -110,29 +93,98 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+const form = document.getElementById("filtroForm");
+const contenedor = document.getElementById("contenedor");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const marcaSeleccionada = document.querySelector('input[name="marca"]:checked');
+  const marca = marcaSeleccionada ? marcaSeleccionada.value.toLowerCase() : null;
+
+  const precioMin = parseInt(document.getElementById("precioMin").value);
+  const precioMax = parseInt(document.getElementById("precioMax").value);
+
+  fetch("https://dummyjson.com/products/category/smartphones")
+    .then(res => res.json())
+    .then(data => {
+      let filtrados = data.products;
+
+      if (marca) {
+        filtrados = filtrados.filter(p =>
+          p.brand.toLowerCase().includes(marca)
+        );
+      }
+
+      filtrados = filtrados.filter(p =>
+        p.price >= precioMin && p.price <= precioMax
+      );
+
+      mostrarProductos(filtrados);
+    });
+});
+
+function mostrarProductos(productos) {
+  contenedor.innerHTML = "";
+
+  if (productos.length === 0) {
+    contenedor.innerHTML = "<p>No se encontraron productos con esos filtros.</p>";
+    return;
+  }
+
+  productos.forEach(producto => {
+    contenedor.innerHTML += `
+      <div class="tarjeta">
+        <div class="fav">
+          <i class="bi bi-star"></i>
+        </div>
+
+        <img src="${producto.thumbnail}" alt="${producto.title}">
+
+        <div class="info">
+          <h3>${producto.title}</h3>
+          <p>$${producto.price}</p>
+        </div>
+
+        <div class="ofertas">
+          <p>32,51% off <br>
+              Efectivo <br>
+              $389.746.67</p>
+                
+          <p>27% off <br>
+              Transferencia <br>
+              $358.848.84</p>
+        </div>
+
+        <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
+      </div>
+    `;
+  });
+}
+
 //Agregar al carrito
 function agregarAlCarrito(id) {
-    fetch(`https://dummyjson.com/products/${id}`)
-        .then(res => res.json())
-        .then(producto => {
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  fetch(`https://dummyjson.com/products/${id}`)
+    .then(res => res.json())
+    .then(producto => {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-            let existe = carrito.find(p => p.id === producto.id);
+      let existe = carrito.find(p => p.id === producto.id);
 
-            if (existe) {
-                existe.cantidad++;
-            } else {
-                carrito.push({
-                    id: producto.id,
-                    nombre: producto.title,
-                    precio: producto.price,
-                    img: producto.thumbnail,
-                    cantidad: 1
-                });
-            }
-
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            alert("Producto agregado!");
+      if (existe) {
+        existe.cantidad++;
+      } else {
+        carrito.push({
+          id: producto.id,
+          nombre: producto.title,
+          precio: producto.price,
+          img: producto.thumbnail,
+          cantidad: 1
         });
+      }
+
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert("Producto agregado!");
+    });
 }
 

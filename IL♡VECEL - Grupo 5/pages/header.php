@@ -35,9 +35,7 @@
         <a href="cart.php">
             <i class="bi bi-cart"></i>
         </a>
-    </li>
 
-    <li class="nav_item">
         <a href="favorite.php">
             <i class="bi bi-star"></i>
         </a>
@@ -45,9 +43,8 @@
 </ul>
 
 <form method="post" class="search-bar">
-    <button type="submit" name="submit" id="buscar">Buscar</button>
     <input type="search" id="barra_busqueda" name="busqueda" placeholder="Busca productos...">
-    <i class="bi bi-search"></i>
+    <button type="submit" name="submit" id="buscar"><i class="bi bi-search"></i></button>
 </form>
 
 <?php

@@ -33,17 +33,32 @@
         <label for="menu_input" class="nav_toogle"></label>
 
         <ul class="nav_list">
-            <li class="nav_item"><a href="index.php" class="seccion">Inicio</a></li>
-            <li class="nav_item"><a href="pages/store.php" class="seccion">Celulares</a></li>
-            <li class="nav_item"><a href="pages/Contact.php" class="seccion">Contactos</a></li>
-            <li class="nav_item"><a href="pages/cart.php"><i class="bi bi-cart"></i></a></li>
-            <li class="nav_item"><a href="pages/favorite.php"><i class="bi bi-star"></i></a></li>
+            <li class="nav_item">
+                <a href="index.php" class="seccion">Inicio</a>
+            </li>
+
+            <li class="nav_item">
+                <a href="pages/store.php" class="seccion">Celulares</a>
+            </li>
+
+            <li class="nav_item">
+                <a href="pages/Contact.php" class="seccion">Contactos</a>
+            </li>
+
+            <li class="nav_item iconos">
+                <a href="cart.php">
+                    <i class="bi bi-cart"></i>
+                </a>
+
+                <a href="favorite.php">
+                    <i class="bi bi-star"></i>
+                </a>
+            </li>
         </ul>
 
         <form method="post" class="search-bar">
-            <button type="submit" name="submit" id="buscar">Buscar</button>
             <input type="search" id="barra_busqueda" name="busqueda" placeholder="Busca productos...">
-            <i class="bi bi-search"></i>
+            <button type="submit" name="submit" id="buscar"><i class="bi bi-search"></i></button>
         </form>
     </header>
     <?php
