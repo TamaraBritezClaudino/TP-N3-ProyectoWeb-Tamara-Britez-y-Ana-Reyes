@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarCarrito();
 });
 
-
 function mostrarCarrito() {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     const lista = document.getElementById("listaCarrito");
@@ -100,3 +99,7 @@ function vaciarCarrito() {
     localStorage.removeItem("carrito");
     mostrarCarrito();
 }
+
+
+
+

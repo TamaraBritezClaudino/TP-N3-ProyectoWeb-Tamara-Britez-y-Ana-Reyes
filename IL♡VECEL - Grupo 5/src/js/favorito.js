@@ -56,24 +56,30 @@ document.addEventListener("DOMContentLoaded", () => {
   mostrarFavorito();
 });
 
-function agregarFavoritoAlCarrito(productoFav) {
-  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+function agregarFavorito(id) {
+    fetch(`https://dummyjson.com/products/${id}`)
+        .then(res => res.json())
+        .then(producto => {
+            let favoritos = JSON.parse(localStorage.getItem("favorito")) || [];
 
-  let existe = carrito.find((p) => p.id === productoFav.id);
+            let existe = favoritos.find(p => p.id === producto.id);
 
-  if (existe) {
-    existe.cantidad++;
-  } else {
-    carrito.push({
-      id: productoFav.id,
-      nombre: productoFav.nombre,
-      precio: productoFav.precio,
-      img: productoFav.img,
-      cantidad: 1,
-    });
-  }
+            if (!existe) {
+                favoritos.push({
+                    id: producto.id,
+                    nombre: producto.title,
+                    precio: producto.price,
+                    img: producto.thumbnail
+                });
 
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  alert("Agregado al carrito desde favoritos!");
-  mostrarCarrito();
+                localStorage.setItem("favorito", JSON.stringify(favoritos));
+                alert("Agregado a favoritos!");
+            } else {
+                alert("Este producto ya está en favoritos.");
+            }
+        });
 }
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarFavorito();
+});
+
