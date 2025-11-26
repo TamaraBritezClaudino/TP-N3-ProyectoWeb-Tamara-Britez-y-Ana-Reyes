@@ -31,7 +31,7 @@
         <a href="Contact.php" class="seccion">Contactos</a>
     </li>
 
-    <li class="nav_item">
+    <li class="nav_item iconos">
         <a href="cart.php">
             <i class="bi bi-cart"></i>
         </a>

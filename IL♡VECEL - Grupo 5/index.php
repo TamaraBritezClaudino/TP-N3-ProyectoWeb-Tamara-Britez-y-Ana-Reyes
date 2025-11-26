@@ -46,11 +46,11 @@
             </li>
 
             <li class="nav_item iconos">
-                <a href="cart.php">
+                <a href="pages/cart.php">
                     <i class="bi bi-cart"></i>
                 </a>
 
-                <a href="favorite.php">
+                <a href="pages/favorite.php">
                     <i class="bi bi-star"></i>
                 </a>
             </li>
@@ -126,44 +126,79 @@
             </div>
         </section>
 
-        <section id="sobreIlovecel">
-            <div id="quienesSomos">
-                <h1>¿Quienes somos?</h1>
-                <p>
-                    En IL♡VECEL somos apasionados por la tecnología y la comunicación. Nuestro obejtivo es conectar a las
-                    personas a través de los mejores dispositivos móviles del mercado, ofreciendo productos de alta
-                    calidad,
-                    innovadores y a precios competitivos e accesibles.
-                    Con años de experiencia en el sector, nos dedicamos a brindar una experiencia de compra sencilla,
-                    confiable
-                    y personalizada, adaptándonos a las necesidades de cada cliente.
-                    Nos enorgullece ser una empresa comprometida con la satisfacción del cliente, ofreciendo no solo
-                    productos,
-                    sino también un servicio de soporte y garantía que asegura tu tranquilidad.
-                </p>
-            </div>
+        <section class="contenedor">
+            <h1 class="titulo">INFORMACIÓN SOBRE ILUVECEL</h1>
+            <p class="subtitulo">
+                ILUVECEL es una tienda online donde podés comparar, elegir y comprar celulares
+                de distintas marcas como Samsung, Motorola, Xiaomi, Infinix e iPhone.
+            </p>
 
+            <div class="grid">
 
-            <div id="historia">
-                <img src="src/img/f93fc358d56dc9bb92076b31c3a7e9f380b47f90 (2).png" alt="Celulares">
-                <div>
-                    <h2>Nuestra historia:</h2>
-
-                    <p>En IL♡VECEL comenzamos en 1976 como una pequeña tienda de celulares con la misión de acercar la
-                        tecnología a
-                        todos. Con el tiempo, pasando por generaciones en generaciones, hemos crecido ofreciendo los
-                        mejores
-                        dispositivos y un servicio personalizado, siempre enfocados en la satisfacción de nuestros
-                        clientes.
-                        Hoy
-                        somos un referente confiable en el mundo móvil, acompañándote en cada conexión.
+                <div class="item">
+                    <i class="bi bi-phone icono"></i>
+                    <h3>Descripción general</h3>
+                    <p>
+                        La plataforma permite realizar compras de celulares de forma segura,
+                        mostrando precios actualizados, modelos recientes y opciones de pago confiables.
                     </p>
                 </div>
+
+                <div class="item">
+                    <i class="bi bi-compass icono"></i>
+                    <h3>Funcionamiento del sitio</h3>
+                    <p>
+                        El sitio está dividido en secciones como Inicio, Celulares, Favoritos,
+                        Carrito, Contacto y Área de Usuario para gestionar compras.
+                    </p>
+                </div>
+
+                <div class="item">
+                    <i class="bi bi-bullseye icono"></i>
+                    <h3>Objetivo del proyecto</h3>
+                    <p>
+                        Simular una tienda moderna de comercio electrónico con diseño limpio,
+                        funcional y accesible para distintos tipos de usuarios.
+                    </p>
+                </div>
+
+                <div class="item">
+                    <i class="bi bi-lightbulb icono"></i>
+                    <h3>Recomendaciones</h3>
+                    <p>
+                        Crear una cuenta segura, verificar datos antes de comprar, revisar
+                        especificaciones y mantener el navegador actualizado.
+                    </p>
+                </div>
+
+                <div class="item">
+                    <i class="bi bi-exclamation-triangle icono"></i>
+                    <h3>Advertencias y cuidados</h3>
+                    <p>
+                        No compartir contraseñas, evitar redes públicas al pagar y contactar
+                        soporte ante actividad sospechosa. Los precios pueden variar sin aviso.
+                    </p>
+                </div>
+
+                <div class="item">
+                    <i class="bi bi-shield-lock icono"></i>
+                    <h3>Seguridad y pagos</h3>
+                    <p>
+                        Los pagos se procesan mediante plataformas seguras. ILUVECEL protege
+                        los datos personales y cumple con sus políticas de privacidad.
+                    </p>
+                </div>
+
             </div>
 
-            <p>Te invitamos a explorar nuestra página, descubrir nuestros productos y conocer todo lo que tenemos para
-                ofrecerte. ¡Sigue navegando y encuentra el celular perfecto para ti!
-            </p>
+
+            <h2 class="titulo">Nuestra Historia</h2>
+            <p class="subtitulo">En IL♡VECEL comenzamos en 1976 como una pequeña tienda de celulares con la misión de acercar la tecnología a todos. Con el tiempo, pasando por generaciones en generaciones, hemos crecido ofreciendo los mejores dispositivos y un servicio personalizado, siempre enfocados en la satisfacción de nuestros clientes. Hoy somos un referente confiable en el mundo móvil, acompañándote en cada conexión. <br>
+        Te invitamos a explorar nuestra página, descubrir nuestros productos y conocer todo lo que tenemos para
+            ofrecerte. ¡Sigue navegando y encuentra el celular perfecto para ti!</p>
+        </section>
+
+        
         </section>
     </main>
 

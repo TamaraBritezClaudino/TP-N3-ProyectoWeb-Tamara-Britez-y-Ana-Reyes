@@ -72,12 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="ofertas">
               <p>32,51% off <br>
-                  Efectivo <br>
-                  $389.746.67</p>
+                  Efectivo</p>
                     
               <p>27% off <br>
-                  Transferencia <br>
-                  $358.848.84</p>
+                  Transferencia</p>
             </div>
               
 <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
@@ -93,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+//Aplicar filtros
 const form = document.getElementById("filtroForm");
 const contenedor = document.getElementById("contenedor");
 
@@ -128,7 +127,7 @@ function mostrarProductos(productos) {
   contenedor.innerHTML = "";
 
   if (productos.length === 0) {
-    contenedor.innerHTML = "<p>No se encontraron productos con esos filtros.</p>";
+    contenedor.innerHTML = "<p>No se encontraron productos</p>";
     return;
   }
 
@@ -148,12 +147,10 @@ function mostrarProductos(productos) {
 
         <div class="ofertas">
           <p>32,51% off <br>
-              Efectivo <br>
-              $389.746.67</p>
+              Efectivo</p>
                 
           <p>27% off <br>
-              Transferencia <br>
-              $358.848.84</p>
+              Transferencia</p>
         </div>
 
         <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
@@ -187,4 +184,3 @@ function agregarAlCarrito(id) {
       alert("Producto agregado!");
     });
 }
-

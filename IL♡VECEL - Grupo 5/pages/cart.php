@@ -26,10 +26,9 @@
 
                 <div class="carrito-total">
                     <h3>SUBTOTAL: <span id="subtotal">0</span> $</h3>
-                    <button class="btn-comprar">REALIZAR PEDIDO</button>
+                    <button id="abrirModal" class="btn-comprar" onclick="vaciarCarrito()">REALIZAR PEDIDO</button>
                 </div>
             </div>
-
         </section>
     </main>
 
