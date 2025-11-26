@@ -89,7 +89,7 @@ const form = document.getElementById("filtroForm");
 const contenedor = document.getElementById("contenedor");
 
 form.addEventListener("submit", function (e) {
-  e.preventDefault(); // evita recargar la página
+  e.preventDefault(); 
 
   const marcaSeleccionada = document.querySelector('input[name="marca"]:checked');
   const marca = marcaSeleccionada ? marcaSeleccionada.value.toLowerCase() : null;
