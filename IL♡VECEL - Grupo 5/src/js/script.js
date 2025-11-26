@@ -14,9 +14,7 @@ priceInput.forEach((input) => {
       if (e.target.className === "input-min") {
         rangeInput[0].value = minPrice;
         range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
-      }
-
-      else {
+      } else {
         rangeInput[1].value = maxPrice;
         range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
       }
@@ -32,14 +30,10 @@ rangeInput.forEach((input) => {
     if (maxVal - minVal < priceGap) {
       if (e.target.className === "range-min") {
         rangeInput[0].value = maxVal - priceGap;
-      }
-
-      else {
+      } else {
         rangeInput[1].value = minVal + priceGap;
       }
-    }
-
-    else {
+    } else {
       priceInput[0].value = minVal;
       priceInput[1].value = maxVal;
       range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
@@ -58,10 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((data) => {
       data.products.forEach((producto) => {
         contenedor.innerHTML += `
-          <div class="tarjeta">
-            <div class="fav">
-             <i class="bi bi-star"></i>
-            </div>
+           <div class="tarjeta">
+        <button onclick="agregarFavorito(${producto.id})"class="fav"><i class="bi bi-star"></i></button>
             
             <img src="${producto.thumbnail}" alt="${producto.title}">
 
@@ -87,7 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     .catch((error) => {
       console.error("Error al obtener productos:", error);
-      contenedor.innerHTML = '<p class="problemaProductos">Hubo un problema al cargar los productos</p>';
+      contenedor.innerHTML =
+        '<p class="problemaProductos">Hubo un problema al cargar los productos</p>';
     });
 });
 
@@ -98,25 +91,29 @@ const contenedor = document.getElementById("contenedor");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const marcaSeleccionada = document.querySelector('input[name="marca"]:checked');
-  const marca = marcaSeleccionada ? marcaSeleccionada.value.toLowerCase() : null;
+  const marcaSeleccionada = document.querySelector(
+    'input[name="marca"]:checked'
+  );
+  const marca = marcaSeleccionada
+    ? marcaSeleccionada.value.toLowerCase()
+    : null;
 
   const precioMin = parseInt(document.getElementById("precioMin").value);
   const precioMax = parseInt(document.getElementById("precioMax").value);
 
   fetch("https://dummyjson.com/products/category/smartphones")
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       let filtrados = data.products;
 
       if (marca) {
-        filtrados = filtrados.filter(p =>
+        filtrados = filtrados.filter((p) =>
           p.brand.toLowerCase().includes(marca)
         );
       }
 
-      filtrados = filtrados.filter(p =>
-        p.price >= precioMin && p.price <= precioMax
+      filtrados = filtrados.filter(
+        (p) => p.price >= precioMin && p.price <= precioMax
       );
 
       mostrarProductos(filtrados);
@@ -131,13 +128,10 @@ function mostrarProductos(productos) {
     return;
   }
 
-  productos.forEach(producto => {
+  productos.forEach((producto) => {
     contenedor.innerHTML += `
       <div class="tarjeta">
-        <div class="fav">
-          <i class="bi bi-star"></i>
-        </div>
-
+        <button onclick="agregarFavorito(${producto.id})"class="fav"><i class="bi bi-star"></i></button>
         <img src="${producto.thumbnail}" alt="${producto.title}">
 
         <div class="info">
@@ -162,11 +156,11 @@ function mostrarProductos(productos) {
 //Agregar al carrito
 function agregarAlCarrito(id) {
   fetch(`https://dummyjson.com/products/${id}`)
-    .then(res => res.json())
-    .then(producto => {
+    .then((res) => res.json())
+    .then((producto) => {
       let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-      let existe = carrito.find(p => p.id === producto.id);
+      let existe = carrito.find((p) => p.id === producto.id);
 
       if (existe) {
         existe.cantidad++;
@@ -176,11 +170,38 @@ function agregarAlCarrito(id) {
           nombre: producto.title,
           precio: producto.price,
           img: producto.thumbnail,
-          cantidad: 1
+          cantidad: 1,
         });
       }
 
       localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert("Producto agregado!");
+    });
+}
+
+
+//Agregar a favorito
+function agregarFavorito(id) {
+  fetch(`https://dummyjson.com/products/${id}`)
+    .then((res) => res.json())
+    .then((producto) => {
+      let favorito = JSON.parse(localStorage.getItem("favorito")) || [];
+
+      let existe = favorito.find((p) => p.id === producto.id);
+
+      if (existe) {
+        existe.cantidad++;
+      } else {
+        favorito.push({
+          id: producto.id,
+          nombre: producto.title,
+          precio: producto.price,
+          img: producto.thumbnail,
+          cantidad: 1,
+        });
+      }
+
+      localStorage.setItem("favorito", JSON.stringify(favorito));
       alert("Producto agregado!");
     });
 }

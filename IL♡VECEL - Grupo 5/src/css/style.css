@@ -524,6 +524,7 @@ button {
     display: flex;
     align-items: end;
     font-size: 20px;
+    background-color: blue;
 }
 
 .ofertas {
