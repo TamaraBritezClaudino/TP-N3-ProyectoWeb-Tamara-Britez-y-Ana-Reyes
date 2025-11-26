@@ -1,21 +1,21 @@
 function mostrarFavorito() {
-    const favorito = JSON.parse(localStorage.getItem("favorito")) || [];
-    const lista = document.getElementById("listaFavorito");
+  const favorito = JSON.parse(localStorage.getItem("favorito")) || [];
+  const lista = document.getElementById("listaFavorito");
 
-    if (!lista) return;
+  if (!lista) return;
 
-    lista.innerHTML = "";
+  lista.innerHTML = "";
 
-    if (favorito.length === 0) {
-        lista.innerHTML = "<p>No hay productos en favoritos.</p>";
-        return;
-    }
+  if (favorito.length === 0) {
+    lista.innerHTML = "<p>No hay productos en favoritos.</p>";
+    return;
+  }
 
-    favorito.forEach((p, index) => {
-        const item = document.createElement("div");
-        item.classList.add("item-compra");
+  favorito.forEach((p, index) => {
+    const item = document.createElement("div");
+    item.classList.add("item-compra");
 
-        item.innerHTML = `
+    item.innerHTML = `
             <div>
                 <img src="${p.img}" class="item-img">
                 
@@ -27,21 +27,23 @@ function mostrarFavorito() {
             </div>
         `;
 
-        const btnEliminar = document.createElement("button");
-        btnEliminar.classList.add("btn-eliminar");
-        btnEliminar.textContent = "X";
-        btnEliminar.addEventListener("click", () => eliminarFavorito(index));
+    const btnEliminar = document.createElement("button");
+    btnEliminar.classList.add("btn-eliminar");
 
-        item.appendChild(btnEliminar);
-        lista.appendChild(item);
-    });
+    btnEliminar.innerHTML = '<i class="bi bi-star-fill"></i>';
+
+    btnEliminar.addEventListener("click", () => eliminarFavorito(index));
+
+    item.appendChild(btnEliminar);
+    lista.appendChild(item);
+  });
 }
 function eliminarFavorito(index) {
-    let favorito = JSON.parse(localStorage.getItem("favorito")) || [];
-    favorito.splice(index, 1);
-    localStorage.setItem("favorito", JSON.stringify(favorito));
-    mostrarFavorito();
+  let favorito = JSON.parse(localStorage.getItem("favorito")) || [];
+  favorito.splice(index, 1);
+  localStorage.setItem("favorito", JSON.stringify(favorito));
+  mostrarFavorito();
 }
 document.addEventListener("DOMContentLoaded", () => {
-    mostrarFavorito();
+  mostrarFavorito();
 });
