@@ -127,9 +127,11 @@ function mostrarProductos(productos) {
   productos.forEach(producto => {
     contenedor.innerHTML += `
       <div class="tarjeta">
-        <div class="fav">
+        <button onclick="agregarFavorito(${producto.id})"  class="fav">
           <i class="bi bi-star"></i>
-        </div>
+
+        </button>
+        
 
         <img src="${producto.thumbnail}" alt="${producto.title}">
 

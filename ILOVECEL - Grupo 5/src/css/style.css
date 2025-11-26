@@ -591,7 +591,6 @@ form {
     text-align: center;
     border: 1px solid #D9D9D9;
     background-color: #D9D9D9;
-    -moz-appearance: textfield;
     font-size: 14px;
 }
 
@@ -628,7 +627,6 @@ input[type="number"]::-webkit-inner-spin-button {
     background: none;
     pointer-events: none;
     -webkit-appearance: none;
-    -moz-appearance: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
