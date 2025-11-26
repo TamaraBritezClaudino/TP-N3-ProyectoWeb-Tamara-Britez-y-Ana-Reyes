@@ -89,9 +89,8 @@
                 <?php foreach ($celulares as $celular) { ?>
                     <div class="tarjeta">
                         <div class="fav">
-                            <i class="bi bi-star"></i>
+                            <button class="fav" onclick="agregarFavorito(<?php echo $celular['api_id']; ?>)"><i class="bi bi-star"></i></button>
                         </div>
-
                         <img src="<?php echo $celular['thumbnail']; ?>" alt="<?php echo $celular['titulo']; ?>">
 
                         <div class="info">
@@ -108,9 +107,7 @@
                                 Transferencia <br>
                                 $358.848.84</p>
                         </div>
-                        
-<button class="agregar" onclick="agregarAlCarrito(<?php echo $celular['api_id']; ?>)">Agregar al carrito</button>
-
+                            <button class="agregar" onclick="agregarAlCarrito(<?php echo $celular['api_id']; ?>)">Agregar al carrito</button>
                     </div>
                 <?php } ?>
             </div>
