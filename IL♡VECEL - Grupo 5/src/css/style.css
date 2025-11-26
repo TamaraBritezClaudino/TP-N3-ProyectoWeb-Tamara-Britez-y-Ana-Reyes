@@ -510,7 +510,7 @@ button {
     width: 80%;
 }
 
-.tarjeta button {
+.tarjeta .agregar {
     background-color: var(--color1);
     color: white;
     padding: 5px;
@@ -521,19 +521,20 @@ button {
     transition: 0.3s ease;
 }
 
-.tarjeta button:hover{
+.tarjeta .agregar:hover{
     background-color: #a8b864f3;
     border-color: #a8b864f3;
 }
 
 .fav {
-    width: 100%;
     display: flex;
     align-items: end;
     align-self: flex-start;
     font-size: 20px;
     width: fit-content;
     cursor: pointer;
+    border: none;
+    background: none;
 }
 
 .ofertas {

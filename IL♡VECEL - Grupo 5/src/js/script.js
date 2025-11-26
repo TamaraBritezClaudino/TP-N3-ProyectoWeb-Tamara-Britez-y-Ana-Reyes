@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   Transferencia</p>
             </div>
               
-<button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
+<button class="agregar" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
 
           </div>
         `;
@@ -147,7 +147,7 @@ function mostrarProductos(productos) {
               Transferencia</p>
         </div>
 
-        <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
+        <button class="agregar" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
       </div>
     `;
   });
