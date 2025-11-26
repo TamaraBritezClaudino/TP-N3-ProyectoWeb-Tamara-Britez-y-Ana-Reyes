@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
               
 <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
+
           </div>
         `;
       });
@@ -110,7 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Agregar al carrito
-
 function agregarAlCarrito(id) {
     fetch(`https://dummyjson.com/products/${id}`)
         .then(res => res.json())
@@ -135,3 +135,4 @@ function agregarAlCarrito(id) {
             alert("Producto agregado!");
         });
 }
+

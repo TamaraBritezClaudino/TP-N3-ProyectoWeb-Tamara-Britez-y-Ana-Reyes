@@ -12,21 +12,21 @@
 
 <body>
     <header>
-<?php session_start();
-?>
-<?php if (isset($_SESSION['usuario'])) { ?>
-    <a class="btnUsuario" href="#">
-        <button><i class="bi bi-person-circle"></i>
-            <?php echo $_SESSION['usuario']['name']; ?>
-        </button>
-    </a>
-<?php } else { ?>
-    <a class="btnUsuario" href="pages/login.php">
-        <button>
-            <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesion
-        </button>
-    </a>
-<?php } ?>
+        <?php session_start();
+        ?>
+        <?php if (isset($_SESSION['usuario'])) { ?>
+            <a class="btnUsuario" href="#">
+                <button><i class="bi bi-person-circle"></i>
+                    <?php echo $_SESSION['usuario']['name']; ?>
+                </button>
+            </a>
+        <?php } else { ?>
+            <a class="btnUsuario" href="pages/login.php">
+                <button>
+                    <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesion
+                </button>
+            </a>
+        <?php } ?>
 
         <input type="checkbox" id="menu_input" class="nav_input">
 
@@ -40,11 +40,20 @@
             <li class="nav_item"><a href="pages/favorite.php"><i class="bi bi-star"></i></a></li>
         </ul>
 
-        <form action="/busqueda" method="get" class="search-bar">
-            <input type="search" id="barra_busqueda" name="q" placeholder="Busca productos...">
+        <form method="post" class="search-bar">
+            <button type="submit" name="submit" id="buscar">Buscar</button>
+            <input type="search" id="barra_busqueda" name="busqueda" placeholder="Busca productos...">
             <i class="bi bi-search"></i>
         </form>
     </header>
+    <?php
+    require_once "includes/config.php";
+
+    if (isset($_POST['submit'])) {
+        $search = $_POST['busqueda'];
+        header("Location: pages/busqueda.php?busqueda=" . urlencode($search));
+    }
+    ?>
 
     <main>
         <div class="contenedorCarrusel">

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda celulares</title>
     <link rel="stylesheet" href="../src/css/style.css">
-    <scrip src="../src/js/carrito.js" defer></scrip>
+    <script src="../src/js/carrito.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -108,6 +108,9 @@
                                 Transferencia <br>
                                 $358.848.84</p>
                         </div>
+                        
+<button onclick="agregarAlCarrito(<?php echo $celular['api_id']; ?>)">Agregar al carrito</button>
+
                     </div>
                 <?php } ?>
             </div>
