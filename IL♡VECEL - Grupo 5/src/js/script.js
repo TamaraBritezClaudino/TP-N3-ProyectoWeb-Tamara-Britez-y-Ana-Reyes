@@ -117,7 +117,7 @@ form.addEventListener("submit", function (e) {
 });
 
 function mostrarProductos(productos) {
-  contenedor.innerHTML = ""; // limpiar lo anterior
+  contenedor.innerHTML = "";
 
   if (productos.length === 0) {
     contenedor.innerHTML = "<p>No se encontraron productos con esos filtros.</p>";
