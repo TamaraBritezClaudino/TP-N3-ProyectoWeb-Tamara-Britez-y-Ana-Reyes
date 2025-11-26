@@ -98,3 +98,28 @@ function agregarAlCarrito(id) {
             alert("Producto agregado!");
         });
 }
+
+function agregarAlCarrito2(id) {
+    fetch(`https://dummyjson.com/products/${id}`)
+        .then(res => res.json())
+        .then(producto => {
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+            let existe = carrito.find(p => p.id === producto.id);
+
+            if (existe) {
+                existe.cantidad++;
+            } else {
+                carrito.push({
+                    id: producto.id,
+                    nombre: producto.title,
+                    precio: producto.price,
+                    img: producto.thumbnail,
+                    cantidad: 1
+                });
+            }
+
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            alert("Producto agregado!");
+        });
+}

@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         contenedor.innerHTML += `
           <div class="tarjeta">
             <div class="fav">
-              <i class="bi bi-star"></i>
+             <i class="bi bi-star"></i>
             </div>
             
             <img src="${producto.thumbnail}" alt="${producto.title}">

@@ -21,6 +21,7 @@
                 <div>
                     <h2>Historial de compras</h2>
                     <hr>
+                    <div id="listaCarrito"></div> 
                 </div>
 
                 <div class="carrito-total">
