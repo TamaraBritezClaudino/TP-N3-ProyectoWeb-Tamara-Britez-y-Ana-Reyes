@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const lista = document.createElement("div");
     lista.id = "listaCarrito";
